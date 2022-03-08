@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">nft</string>
+    <string name="settings">Settings</string>
+    <string name="dex">Dex</string>
+    <string name="dapps">Dapps</string>
+    <string name="wallet">Wallet</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

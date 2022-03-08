@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/walletFragment">
+
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.WalletFragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" />
+    <fragment
+        android:id="@+id/dappsFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.DappsFragment"
+        android:label="fragment_dapps"
+        tools:layout="@layout/fragment_dapps" />
+    <fragment
+        android:id="@+id/dexFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.DexFragment"
+        android:label="fragment_dex"
+        tools:layout="@layout/fragment_dex" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

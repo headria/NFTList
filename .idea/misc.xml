@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/bottom_nav_view_icon_tint_color.xml" value="0.2025" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/bottom_nav_view_icon_tint_color_selector.xml" value="0.1895" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/bottom_nav_view_item_background.xml" value="0.2025" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/bottom_nav_view_text_color.xml" value="0.2025" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/bottom_nav_view_wallet_selector.xml" value="0.1975" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_bottom_nav_view_setting_fill.xml" value="0.1895" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_bottom_nav_view_setting_outline.xml" value="0.1895" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_bottom_nav_view_wallet.xml" value="0.2025" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_bottom_nav_view_wallet_fill.xml" value="0.1975" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_circle_fill.xml" value="0.2025" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/navigation_item_background.xml" value="0.2025" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/navigation_text_color.xml" value="0.2025" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/selector_bottom_nav_view_icon_tint_color.xml" value="0.1895" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/selector_bottom_nav_view_setting_icon.xml" value="0.1895" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/selector_bottom_nav_view_wallet_icon.xml" value="0.117" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/fragment_dex.xml" value="0.22644927536231885" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/fragment_settings.xml" value="0.22644927536231885" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/menu/bottom_nav_view_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

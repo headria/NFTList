@@ -15,4 +15,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    // bottom navigation view
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/sans_light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>
