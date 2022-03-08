@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/walletFragment"
+        android:icon="@drawable/selector_bottom_nav_view_wallet_icon"
+        android:title="@string/wallet" />
+
+    <item
+        android:id="@+id/dappsFragment"
+        android:icon="@drawable/selector_bottom_nav_view_wallet_icon"
+        android:title="@string/dapps" />
+
+    <item
+        android:id="@+id/dexFragment"
+        android:icon="@drawable/selector_bottom_nav_view_wallet_icon"
+        android:title="@string/dex" />
+ 
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/selector_bottom_nav_view_setting_icon"
+        android:title="@string/settings" />
+
+</menu>
