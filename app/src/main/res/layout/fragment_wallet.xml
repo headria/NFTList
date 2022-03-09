@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -10,10 +11,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_bg_color"
-        tools:context=".ui.fragments.WalletFragment">
+        tools:context=".ui.fragments.main.wallet.WalletFragment">
 
-        <include layout="@layout/toolbar"/>
+        <include
+            android:id="@+id/toolbar_wallet"
+            layout="@layout/toolbar" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/wallet_tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:fontFamily="@font/sans_bold"
+            android:text="Symbol List"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_wallet" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wallet_rec_symbol_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wallet_tv_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
