@@ -25,4 +25,8 @@
         android:name="com.arabnetwork.nft.ui.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/tradeFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.TradeFragment"
+        android:label="TradeFragment" />
 </navigation>

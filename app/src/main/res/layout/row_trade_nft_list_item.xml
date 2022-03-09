@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="nftModel"
+            type="com.arabnetwork.nft.models.NftModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/wallet_symbol_list_item_card_bg_drawable">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/row_trade_nft_list_cns_nft_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:cardBackgroundColor="@color/status_bar_color"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/row_trade_nft_list_tv_nft_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <ImageView
+                android:id="@+id/row_trade_nft_list_iv_nft_image"
+                loadImageFromUrl="@{nftModel.nftImage}"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/row_trade_nft_list_tv_nft_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/sans_regular"
+            android:text="@{nftModel.nftName}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            app:layout_constraintBottom_toTopOf="@+id/row_wallet_symbol_list_tv_coin_nft_counts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row_trade_nft_list_cns_nft_image" />
+
+        <TextView
+            android:id="@+id/row_wallet_symbol_list_tv_coin_nft_counts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
+            android:fontFamily="@font/sans_regular"
+            android:text="@{nftModel.nftCoin}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/custom_search_view_edt_text_color"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row_trade_nft_list_tv_nft_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
