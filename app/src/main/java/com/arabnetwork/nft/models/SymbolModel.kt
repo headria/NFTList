@@ -4,13 +4,13 @@ data class SymbolModel(
 
     var coinId: String? = "",
 
-    var name: String? = "",
+    var coinName: String? = "",
 
-    var symbol: String? = "",
+    var coinSymbol: String? = "",
 
-    var icon: String? = "",
+    var coinIcon: String? = "",
 
-    var nftCount: String? = ""
+    var coinNftCount: String? = ""
 )
 
 
