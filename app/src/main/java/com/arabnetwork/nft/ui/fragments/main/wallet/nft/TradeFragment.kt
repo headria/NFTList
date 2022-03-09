@@ -1,5 +1,6 @@
 package com.arabnetwork.nft.ui.fragments.main.wallet.nft
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentTradeBinding
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.adapter.TradeNftListRecAdapter
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail.NftDetailFragment.Companion.NFT_DETAIL_FRAGMENT_NFT_MODEL_KEY
 import com.arabnetwork.nft.utils.StaticListConstants.Companion.trade_nft_list
+import com.arabnetwork.nft.utils.StringConstants.Companion.NFT_LIST_TEXT
 
 class TradeFragment : Fragment(), View.OnClickListener {
 
@@ -67,7 +70,7 @@ class TradeFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        when(view?.id) {
+        when (view?.id) {
             R.id.toolbar_iv_back -> {
                 findNavController().navigate(R.id.walletFragment)
             }
@@ -78,13 +81,20 @@ class TradeFragment : Fragment(), View.OnClickListener {
         mBinding?.toolbarTrade?.toolbarIvBack?.setOnClickListener(this)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setCoinSymbolTitle() {
-        mBinding?.tradeTvCoinSymbolTitle?.text = "$mCoinSymbol - NFT List"
+        mBinding?.tradeTvCoinSymbolTitle?.text = "$mCoinSymbol - $NFT_LIST_TEXT"
     }
 
     private fun initTradeNftListRecAdapter() {
         mTradeNftListRecAdapter = TradeNftListRecAdapter().apply {
             setList(trade_nft_list)
+
+            onItemClicked.observe(viewLifecycleOwner) {
+                findNavController().navigate(R.id.nftDetailFragment, Bundle().apply {
+                    putParcelable(NFT_DETAIL_FRAGMENT_NFT_MODEL_KEY,it)
+                })
+            }
         }
     }
 

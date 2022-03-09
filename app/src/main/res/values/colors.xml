@@ -12,7 +12,11 @@
     <color name="bottom_nav_view_bg_color">#142252</color>
     <color name="app_bg_color">#121224</color>
     <color name="text_gray_color">#7980a3</color>
-    <color name="custom_search_view_bg_color">#142251</color>
-    <color name="custom_search_view_edt_text_color">#5a6485</color>
+    <color name="search_view_bg_color">#142251</color>
+    <color name="search_view_edt_text_color">#5a6485</color>
+    <color name="bg_gray_color">#424250</color>
+    <color name="purple_color">#401b86</color>
+    <color name="half_gray_color">#E2F6F5F8</color>
+
 
 </resources>

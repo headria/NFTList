@@ -3,9 +3,9 @@
     android:shape="rectangle">
 
     <corners android:radius="@dimen/custom_search_view_bg_radius" />
-    <solid android:color="@color/custom_search_view_bg_color"/>
+    <solid android:color="@color/search_view_bg_color"/>
     <stroke
         android:width="1dp"
-        android:color="@color/custom_search_view_bg_color" />
+        android:color="@color/search_view_bg_color" />
 
 </shape>

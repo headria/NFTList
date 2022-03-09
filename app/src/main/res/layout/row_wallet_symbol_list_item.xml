@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:layout_margin="8dp"
-        android:background="@drawable/wallet_symbol_list_item_card_bg_drawable">
+        android:background="@drawable/drawable_wallet_symbol_list_item_card_bg">
 
 
         <ImageView
@@ -54,7 +54,7 @@
             android:fontFamily="@font/sans_regular"
             android:text="@{symbolModel.coinNftCount}"
             android:textAlignment="center"
-            android:textColor="@color/custom_search_view_edt_text_color"
+            android:textColor="@color/search_view_edt_text_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"

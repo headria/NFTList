@@ -20,4 +20,17 @@
         <item name="fontFamily">@font/sans_light</item>
         <item name="android:textSize">12sp</item>
     </style>
+
+    // dialog fragment style
+    <style name="FullScreenDialogStyle" parent="Theme.Nft">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    // nft detail dialog fragment transition
+    <style name="SymbolDetailsTransition" parent="Theme.Nft">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
 </resources>
