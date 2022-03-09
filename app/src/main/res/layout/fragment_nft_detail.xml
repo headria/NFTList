@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="nftModel"
+            type="com.arabnetwork.nft.models.NftModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg_color"
+        tools:context=".ui.fragments.main.wallet.nft.detail.NftDetailFragment">
+
+        <FrameLayout
+            android:id="@+id/nft_detail_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/nft_detail_cv_nft_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:id="@+id/nft_detail_iv_nft_image"
+                    loadImageFromUrl="@{nftModel.nftImage}"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+        <include
+            android:id="@+id/nft_detail_toolbar"
+            layout="@layout/toolbar_nft_detail" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_nft_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/sans_bold"
+            android:text="@{nftModel.nftName}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            app:layout_constraintEnd_toStartOf="@+id/nft_detail_iv_nft_favorite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nft_detail_frame" />
+
+        <ImageView
+            android:id="@+id/nft_detail_iv_nft_share"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:background="@drawable/drawable_bg_gray"
+            android:clickable="true"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/nft_detail_tv_nft_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nft_detail_tv_nft_name"
+            app:srcCompat="@drawable/ic_share" />
+
+        <ImageView
+            android:id="@+id/nft_detail_iv_nft_favorite"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/drawable_bg_gray"
+            android:clickable="true"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/nft_detail_tv_nft_name"
+            app:layout_constraintEnd_toStartOf="@+id/nft_detail_iv_nft_share"
+            app:layout_constraintTop_toTopOf="@+id/nft_detail_tv_nft_name"
+            app:srcCompat="@drawable/ic_favorite" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_coin_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:fontFamily="@font/sans_bold"
+            android:text="@{nftModel.nftCoinPrice}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            app:layout_constraintBottom_toBottomOf="@+id/nft_detail_btn_send"
+            app:layout_constraintEnd_toStartOf="@+id/nft_detail_tv_coin_name"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nft_detail_btn_send" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_coin_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/sans_regular"
+            android:gravity="center"
+            android:text="@{nftModel.nftCoin}"
+            android:textColor="@color/text_gray_color"
+            android:textSize="@dimen/custom_search_view_edt_text_size_medium"
+            app:layout_constraintBottom_toBottomOf="@+id/nft_detail_tv_coin_price"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/nft_detail_tv_coin_price"
+            app:layout_constraintTop_toTopOf="@+id/nft_detail_tv_coin_price" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nft_detail_btn_send"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:background="@drawable/gradient_bg_btn"
+            android:fontFamily="@font/sans_bold"
+            android:text="Send"
+            android:textColor="@color/white"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nft_detail_iv_nft_favorite" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_address_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:fontFamily="@font/sans_regular"
+            android:text="Address"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/custom_search_view_edt_text_size_medium"
+            app:layout_constraintTop_toBottomOf="@+id/nft_detail_btn_send" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:fontFamily="@font/sans_regular"
+            android:text="@{nftModel.nftAddress}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_gray_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/custom_search_view_edt_text_size_medium"
+            app:layout_constraintTop_toBottomOf="@+id/nft_detail_tv_address_txt" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_description_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:fontFamily="@font/sans_regular"
+            android:text="Description"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/custom_search_view_edt_text_size_medium"
+            app:layout_constraintTop_toBottomOf="@+id/nft_detail_tv_address" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:fontFamily="@font/sans_regular"
+            android:text="@string/lorem"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_gray_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/custom_search_view_edt_text_size_medium"
+            app:layout_constraintTop_toBottomOf="@+id/nft_detail_tv_description_txt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

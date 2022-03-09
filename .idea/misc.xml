@@ -9,6 +9,12 @@
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/bottom_nav_view_text_color.xml" value="0.2025" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/bottom_nav_view_wallet_selector.xml" value="0.1975" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/custom_search_view_bg_drawable.xml" value="0.143" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/drawable_bg_gray.xml" value="0.175" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/drawable_bg_half_gray.xml" value="0.175" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/drawable_trade_nft_list_item_card_bg.xml" value="0.175" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/drawable_wallet_symbol_list_item_card_bg.xml" value="0.175" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/gradient_bg_btn.xml" value="0.175" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_back.xml" value="0.175" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_bottom_nav_view_setting_fill.xml" value="0.1895" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_bottom_nav_view_setting_outline.xml" value="0.1895" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/drawable/ic_bottom_nav_view_wallet.xml" value="0.2025" />
@@ -25,6 +31,7 @@
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/custom_view_search.xml" value="0.22644927536231885" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/fragment_dex.xml" value="0.22644927536231885" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/fragment_nft_detail.xml" value="0.264" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/fragment_settings.xml" value="0.22644927536231885" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/fragment_trade.xml" value="0.2391304347826087" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/fragment_wallet.xml" value="0.264" />
@@ -32,6 +39,7 @@
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/row_wallet_symbol_list_item.xml" value="0.2391304347826087" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/toolbar.xml" value="0.264" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/toolbar_Trade.xml" value="0.2391304347826087" />
+        <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/toolbar_nft_detail.xml" value="0.2391304347826087" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/layout/toolbar_trade.xml" value="0.2504528985507246" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Programming/PersonalProject/Arab Network/arabnetwork-nft/app/src/main/res/menu/bottom_nav_view_menu.xml" value="0.1" />
