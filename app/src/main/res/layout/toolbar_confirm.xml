@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/status_bar_color"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sans_bold"
+            android:text="@string/confirm"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/toolbar_iv_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/drawable_search_view_bg"
+            android:clickable="true"
+            android:cropToPadding="true"
+            android:padding="16dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+
+        <ImageView
+            android:id="@+id/toolbar_iv_setting"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/drawable_search_view_bg"
+            android:clickable="true"
+            android:cropToPadding="true"
+            android:padding="4dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_bottom_nav_view_setting_outline" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

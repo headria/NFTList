@@ -9,44 +9,44 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.arabnetwork.nft.databinding.RowWalletSymbolListItemBinding
-import com.arabnetwork.nft.models.SymbolModel
+import com.arabnetwork.nft.models.NetworkModel
 import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
 
 
 class WalletNetworkListRecAdapter :
-    ListAdapter<SymbolModel, WalletNetworkListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
+    ListAdapter<NetworkModel, WalletNetworkListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
 
     companion object {
         private const val TAG = "WalletSymbolListRecAdapter"
     }
 
-    object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<SymbolModel>() {
+    object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NetworkModel>() {
         override fun areItemsTheSame(
-            oldItem: SymbolModel,
-            newItem: SymbolModel
+            oldItem: NetworkModel,
+            newItem: NetworkModel
         ): Boolean {
-            return oldItem.coinId == newItem.coinId
+            return oldItem.networkId == newItem.networkId
         }
 
         override fun areContentsTheSame(
-            oldItem: SymbolModel,
-            newItem: SymbolModel
+            oldItem: NetworkModel,
+            newItem: NetworkModel
         ): Boolean {
             return oldItem == newItem
         }
     }
 
-    private val _onItemClicked: LiveEvent<SymbolModel> =
+    private val _onItemClicked: LiveEvent<NetworkModel> =
         LiveEvent(config = LiveEventConfig.PreferFirstObserver)
-    val onItemClicked: LiveData<SymbolModel> get() = _onItemClicked
+    val onItemClicked: LiveData<NetworkModel> get() = _onItemClicked
 
 
     class ViewHolder(val binding: RowWalletSymbolListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(symbolModel: SymbolModel) {
-            binding.symbolModel = symbolModel
+        fun bind(networkModel: NetworkModel) {
+            binding.symbolModel = networkModel
 
             binding.executePendingBindings()
         }
@@ -82,7 +82,7 @@ class WalletNetworkListRecAdapter :
         }
     }
 
-    fun setList(newData: List<SymbolModel>) {
+    fun setList(newData: List<NetworkModel>) {
         try {
             submitList(newData)
         } catch (e: Exception) {

@@ -1,68 +1,68 @@
 package com.arabnetwork.nft.utils
 
 import com.arabnetwork.nft.models.NftModel
-import com.arabnetwork.nft.models.SymbolModel
+import com.arabnetwork.nft.models.NetworkModel
 
 class StaticListConstants {
 
     companion object {
 
-        val wallet_symbol_list: List<SymbolModel> = listOf(
-            SymbolModel(
-                coinId = "1",
-                coinName = "Bitcoin",
-                coinSymbol = "BTC",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
-                coinNftCount = "16 NFT"
+        val WALLET___NETWORK___LIST: List<NetworkModel> = listOf(
+            NetworkModel(
+                networkId = "1",
+                networkName = "Bitcoin",
+                networkSymbol = "BTC",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+                networkNftCount = "16 NFT"
             ),
-            SymbolModel(
-                coinId = "2",
-                coinName = "Ethereum",
-                coinSymbol = "ETH",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
-                coinNftCount = "16 NFT"
+            NetworkModel(
+                networkId = "2",
+                networkName = "Ethereum",
+                networkSymbol = "ETH",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+                networkNftCount = "16 NFT"
             ),
-            SymbolModel(
-                coinId = "3",
-                coinName = "Tether",
-                coinSymbol = "USDT",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
-                coinNftCount = "16 NFT"
+            NetworkModel(
+                networkId = "3",
+                networkName = "Tether",
+                networkSymbol = "USDT",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+                networkNftCount = "16 NFT"
             ),
-            SymbolModel(
-                coinId = "4",
-                coinName = "Binance Coin",
-                coinSymbol = "BNB",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png",
-                coinNftCount = "16 NFT"
+            NetworkModel(
+                networkId = "4",
+                networkName = "Binance Coin",
+                networkSymbol = "BNB",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png",
+                networkNftCount = "16 NFT"
             ),
-            SymbolModel(
-                coinId = "5",
-                coinName = "USD Coin",
-                coinSymbol = "USDC",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
-                coinNftCount = "16 NFT"
+            NetworkModel(
+                networkId = "5",
+                networkName = "USD Coin",
+                networkSymbol = "USDC",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+                networkNftCount = "16 NFT"
             ),
-            SymbolModel(
-                coinId = "6",
-                coinName = "XRP",
-                coinSymbol = "XRP",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/52.png",
-                coinNftCount = "16 NFT"
+            NetworkModel(
+                networkId = "6",
+                networkName = "XRP",
+                networkSymbol = "XRP",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/52.png",
+                networkNftCount = "16 NFT"
             ),
-            SymbolModel(
-                coinId = "7",
-                coinName = "Terra",
-                coinSymbol = "LUNA",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png",
-                coinNftCount = "16 NFT"
+            NetworkModel(
+                networkId = "7",
+                networkName = "Terra",
+                networkSymbol = "LUNA",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png",
+                networkNftCount = "16 NFT"
             ),
-            SymbolModel(
-                coinId = "8",
-                coinName = "Cardano",
-                coinSymbol = "Ada",
-                coinIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png",
-                coinNftCount = "16 NFT"
+            NetworkModel(
+                networkId = "8",
+                networkName = "Cardano",
+                networkSymbol = "Ada",
+                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png",
+                networkNftCount = "16 NFT"
             ),
         )
 

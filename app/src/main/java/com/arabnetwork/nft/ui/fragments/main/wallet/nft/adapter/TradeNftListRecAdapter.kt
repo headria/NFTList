@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.arabnetwork.nft.databinding.RowTradeNftListItemBinding
-import com.arabnetwork.nft.databinding.RowWalletSymbolListItemBinding
 import com.arabnetwork.nft.models.NftModel
-import com.arabnetwork.nft.models.SymbolModel
 import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
 
