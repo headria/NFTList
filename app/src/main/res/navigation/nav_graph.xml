@@ -37,4 +37,10 @@
         android:label="NftDetailFragment"
         tools:layout="@layout/fragment_nft_detail"
         />
+    <dialog
+        android:id="@+id/transferFeeFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer.TransferFeeFragment"
+        android:label="TransferFeeFragment"
+        tools:layout="@layout/fragment_transfer_fee"
+        />
 </navigation>

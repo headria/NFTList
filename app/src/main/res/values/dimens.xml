@@ -3,6 +3,7 @@
 
     // custom search view
     <dimen name="custom_search_view_edt_height">48dp</dimen>
+    <dimen name="address_view_edt_height">68dp</dimen>
     <dimen name="custom_search_view_bg_radius">8dp</dimen>
     <dimen name="custom_search_view_edt_padding_start">16dp</dimen>
     <dimen name="custom_search_view_edt_padding_end">16dp</dimen>
