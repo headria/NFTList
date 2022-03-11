@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentNftDetailBinding
 import com.arabnetwork.nft.databinding.FragmentTransferFeeBinding
+import com.arabnetwork.nft.models.ConfirmModel
 import com.arabnetwork.nft.models.NftModel
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.confirm.ConfirmFragment.Companion.CONFIRM_FRAGMENT_CONFIRM_MODEL_KEY
 import com.arabnetwork.nft.utils.fragments.BaseDialogFragment
 
 class TransferFeeFragment : BaseDialogFragment(), View.OnClickListener {
@@ -60,12 +63,22 @@ class TransferFeeFragment : BaseDialogFragment(), View.OnClickListener {
 
     private fun setOnClickListener() {
         mBinding?.transferFeeToolbar?.toolbarIvBack?.setOnClickListener(this)
+        mBinding?.transferFeeBtnSend?.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.toolbar_iv_back -> {
                 dismiss()
+            }
+            R.id.transfer_fee_btn_send -> {
+                findNavController().navigate(R.id.confirmFragment , Bundle().apply {
+                    putParcelable(CONFIRM_FRAGMENT_CONFIRM_MODEL_KEY,ConfirmModel().apply {
+                        confirmFrom = "0845rftjhdytrnpsjfyrtbcge3218lprn"
+                        confirmTo = "0845rftjhdytrnpsjfyrtbcge3218lprn"
+                        confirmNetworkFee = "0845rftjhdytrnpsjfyrtbcge3218lprn"
+                    })
+                })
             }
         }
     }

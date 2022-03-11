@@ -16,11 +16,47 @@
         android:background="@color/app_bg_color"
         tools:context=".ui.fragments.main.wallet.nft.detail.NftDetailFragment">
 
+        <FrameLayout
+            android:id="@+id/transfer_fee_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/transfer_fee_cv_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:id="@+id/transfer_fee_iv_image"
+                    loadImageFromUrl="@{nftModel.nftImage}"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+        <include
+            android:id="@+id/transfer_fee_toolbar"
+            layout="@layout/toolbar_nft_detail" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-20dp"
-            android:background="@drawable/drawable_wallet_symbol_list_item_card_bg"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/shape_bottom_radius"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/transfer_fee_frame">
@@ -109,44 +145,8 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <FrameLayout
-            android:id="@+id/transfer_fee_frame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/transfer_fee_cv_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-10dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="16dp">
-
-                <ImageView
-                    android:id="@+id/transfer_fee_iv_image"
-                    loadImageFromUrl="@{nftModel.nftImage}"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.cardview.widget.CardView>
-
-        </FrameLayout>
-
-        <include
-            android:id="@+id/transfer_fee_toolbar"
-            layout="@layout/toolbar_nft_detail" />
-
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/nft_detail_btn_send"
+            android:id="@+id/transfer_fee_btn_send"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
@@ -154,7 +154,7 @@
             android:layout_marginBottom="32dp"
             android:background="@drawable/gradient_bg_btn"
             android:fontFamily="@font/sans_bold"
-            android:text="Send"
+            android:text="@string/send"
             android:textColor="@color/white"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -11,7 +11,7 @@ import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentWalletBinding
 import com.arabnetwork.nft.ui.fragments.main.wallet.adapter.WalletNetworkListRecAdapter
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.TradeFragment.Companion.TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY
-import com.arabnetwork.nft.utils.StaticListConstants.Companion.wallet_symbol_list
+import com.arabnetwork.nft.utils.StaticListConstants.Companion.WALLET___NETWORK___LIST
 
 class WalletFragment : Fragment() {
 
@@ -56,11 +56,11 @@ class WalletFragment : Fragment() {
 
     private fun initWalletSymbolListRecAdapter() {
         mWalletNetworkListRecAdapter = WalletNetworkListRecAdapter().apply {
-            setList(wallet_symbol_list)
+            setList(WALLET___NETWORK___LIST)
 
             onItemClicked.observe(viewLifecycleOwner) {
                 findNavController().navigate(R.id.tradeFragment, Bundle().apply {
-                    putString(TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY,it.coinSymbol)
+                    putString(TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY,it.networkSymbol)
                 })
             }
         }
