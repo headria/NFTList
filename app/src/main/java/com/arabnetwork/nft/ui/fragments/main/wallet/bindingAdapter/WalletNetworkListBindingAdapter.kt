@@ -4,7 +4,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import coil.load
 
-class WalletSymbolListBindingAdapter {
+class WalletNetworkListBindingAdapter {
 
     companion object {
 

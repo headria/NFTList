@@ -25,7 +25,7 @@
             android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
             android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
             android:fontFamily="@font/sans_bold"
-            android:text="Symbol List"
+            android:text="@string/network_list"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"

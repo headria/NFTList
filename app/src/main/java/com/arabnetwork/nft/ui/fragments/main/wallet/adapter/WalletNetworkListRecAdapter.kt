@@ -14,8 +14,8 @@ import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
 
 
-class WalletSymbolListRecAdapter :
-    ListAdapter<SymbolModel, WalletSymbolListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
+class WalletNetworkListRecAdapter :
+    ListAdapter<SymbolModel, WalletNetworkListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
 
     companion object {
         private const val TAG = "WalletSymbolListRecAdapter"
