@@ -48,4 +48,10 @@
         android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.confirm.ConfirmFragment"
         android:label="fragment_confirm"
         tools:layout="@layout/fragment_confirm" />
+    <dialog
+        android:id="@+id/transactionFeeFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.transactionFee.TransactionFeeFragment"
+        android:label="TransactionFeeFragment"
+        tools:layout="@layout/fragment_transaction_fee"
+        />
 </navigation>

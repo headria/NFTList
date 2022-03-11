@@ -12,5 +12,6 @@
     <dimen name="custom_search_view_edt_text_size_small">12sp</dimen>
     <dimen name="custom_search_view_edt_text_size_medium">16sp</dimen>
     <dimen name="custom_search_view_edt_text_size_large">20sp</dimen>
+    <dimen name="custom_search_view_edt_text_size_extra_large">34sp</dimen>
 
 </resources>
