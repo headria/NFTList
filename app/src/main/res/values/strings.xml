@@ -16,4 +16,9 @@
     <string name="network_fee">Network Fee</string>
     <string name="to">To</string>
     <string name="from">From</string>
+    <string name="transaction_fees">Transaction Fees</string>
+    <string name="slow">Slow</string>
+    <string name="medium">Medium</string>
+    <string name="fast">fast</string>
+    <string name="estimated">estimated</string>
 </resources>
