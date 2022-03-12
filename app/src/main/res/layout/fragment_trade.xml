@@ -23,7 +23,7 @@
             android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
             android:fontFamily="@font/sans_bold"
             android:textAlignment="viewStart"
-            android:textColor="@color/white"
+            android:textColor="@color/network_list_title_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

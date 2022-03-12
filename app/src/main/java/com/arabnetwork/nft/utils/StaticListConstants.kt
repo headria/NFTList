@@ -96,7 +96,7 @@ class StaticListConstants {
             ),
             NftModel(
                 nftId = "4",
-                nftImage = "https://pixelguysnft.com/images/874.png",
+                nftImage = "https://i.pinimg.com/736x/4a/d2/7f/4ad27f8477b8e3f7548fe1f806c374c4.jpg",
                 nftName = "Pixel",
                 nftCoin = "Binance Coin",
                 nftCoinPrice = "0.00045",
