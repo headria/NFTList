@@ -1,25 +1,25 @@
-package com.arabnetwork.nft.ui.fragments.main.wallet.nft.transactionFee
+package com.arabnetwork.nft.ui.fragments.main.wallet.nft.transactionFeeSetting
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentTransactionFeeBinding
+import com.arabnetwork.nft.databinding.FragmentTransactionFeeSettingBinding
 import com.arabnetwork.nft.models.TransactionFeeModel
 import com.arabnetwork.nft.utils.fragments.BaseDialogFragment
 
-class TransactionFeeFragment : BaseDialogFragment(), View.OnClickListener {
+class TransactionFeeSettingFragment : BaseDialogFragment(), View.OnClickListener {
 
     companion object {
-        const val TRANSACTION_FEE_FRAGMENT_TRANSACTION_FEE_MODEL_KEY = "transactionFeeModel"
+        const val TRANSACTION_FEE_FRAGMENT_TRANSACTION_FEE_MODEL_KEY = ""
     }
 
     /**
      * binding
      */
-    private var _binding: FragmentTransactionFeeBinding? = null
+    private var _binding: FragmentTransactionFeeSettingBinding? = null
     private val mBinding get() = _binding
 
     /**
@@ -30,11 +30,7 @@ class TransactionFeeFragment : BaseDialogFragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            requireArguments().getParcelable<TransactionFeeModel>(
-                TRANSACTION_FEE_FRAGMENT_TRANSACTION_FEE_MODEL_KEY
-            )?.let {
-                mTransFeeModel = it
-            }
+
         }
     }
 
@@ -43,15 +39,13 @@ class TransactionFeeFragment : BaseDialogFragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentTransactionFeeBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionFeeSettingBinding.inflate(inflater, container, false)
 
         return _binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        mBinding?.transFeeModel = mTransFeeModel
 
         build()
     }
@@ -62,16 +56,12 @@ class TransactionFeeFragment : BaseDialogFragment(), View.OnClickListener {
 
     private fun setOnClickListener() {
         mBinding?.toolbarTransactionFee?.toolbarIvBack?.setOnClickListener(this)
-        mBinding?.toolbarTransactionFee?.toolbarIvSetting?.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.toolbar_iv_back -> {
                 dismiss()
-            }
-            R.id.toolbar_iv_setting -> {
-                findNavController().navigate(R.id.transactionFeeSettingFragment)
             }
         }
     }

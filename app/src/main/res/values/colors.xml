@@ -24,4 +24,6 @@
     <color name="network_item_card_stroke_color">@color/white</color>
     <color name="network_name_text_color">#0A1845</color>
 
+    <color name="border_blue_color">#3088b1</color>
+
 </resources>
