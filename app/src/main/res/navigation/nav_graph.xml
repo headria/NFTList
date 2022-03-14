@@ -52,6 +52,11 @@
         android:id="@+id/transactionFeeFragment"
         android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.transactionFee.TransactionFeeFragment"
         android:label="TransactionFeeFragment"
-        tools:layout="@layout/fragment_transaction_fee"
+        tools:layout="@layout/fragment_transaction_fee" />
+    <dialog
+        android:id="@+id/transactionFeeSettingFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.transactionFeeSetting.TransactionFeeSettingFragment"
+        android:label="TransactionFeeSettingFragment"
+        tools:layout="@layout/fragment_transaction_fee_setting"
         />
 </navigation>
