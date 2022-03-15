@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.arabnetwork.nft.R
-import com.arabnetwork.nft.databinding.FragmentNftDetailBinding
 import com.arabnetwork.nft.databinding.FragmentTransferFeeBinding
 import com.arabnetwork.nft.models.ConfirmModel
 import com.arabnetwork.nft.models.NftModel
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.confirm.ConfirmFragment.Companion.CONFIRM_FRAGMENT_CONFIRM_MODEL_KEY
-import com.arabnetwork.nft.utils.fragments.BaseDialogFragment
+import com.arabnetwork.nft.util.fragments.BaseDialogFragment
 
 class TransferFeeFragment : BaseDialogFragment(), View.OnClickListener {
 

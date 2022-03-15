@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="nftModel"
-            type="com.arabnetwork.nft.models.NftModel" />
+            name="nftResultModel"
+            type="com.arabnetwork.nft.models.nft.NftResultModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +32,6 @@
 
             <ImageView
                 android:id="@+id/row_trade_nft_list_iv_nft_image"
-                loadImageFromUrl="@{nftModel.nftImage}"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:scaleType="fitXY"
@@ -51,7 +50,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/sans_regular"
-            android:text="@{nftModel.nftName}"
+            android:text="@{nftResultModel.name}"
             android:textAlignment="viewStart"
             android:textColor="@color/network_name_text_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
@@ -70,7 +69,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
             android:fontFamily="@font/sans_regular"
-            android:text="@{nftModel.nftCoin}"
+            android:text="@{nftResultModel.symbol}"
             android:textAlignment="viewStart"
             android:textColor="@color/search_view_edt_text_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
@@ -87,7 +86,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
             android:fontFamily="@font/sans_regular"
-            android:text="@{nftModel.nftCount}"
+            android:text="@{nftResultModel.amount}"
             android:textAlignment="viewStart"
             android:textColor="@color/search_view_edt_text_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"

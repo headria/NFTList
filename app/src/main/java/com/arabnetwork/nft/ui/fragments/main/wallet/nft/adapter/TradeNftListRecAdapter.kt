@@ -10,43 +10,44 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.arabnetwork.nft.databinding.RowTradeNftListItemBinding
 import com.arabnetwork.nft.models.NftModel
+import com.arabnetwork.nft.models.nft.NftResultModel
 import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
 
 
 class TradeNftListRecAdapter :
-    ListAdapter<NftModel, TradeNftListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
+    ListAdapter<NftResultModel, TradeNftListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
 
     companion object {
         private const val TAG = "TradeNftListRecAdapter"
     }
 
-    object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NftModel>() {
+    object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NftResultModel>() {
         override fun areItemsTheSame(
-            oldItem: NftModel,
-            newItem: NftModel
+            oldItem: NftResultModel,
+            newItem: NftResultModel
         ): Boolean {
-            return oldItem.nftId == newItem.nftId
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(
-            oldItem: NftModel,
-            newItem: NftModel
+            oldItem: NftResultModel,
+            newItem: NftResultModel
         ): Boolean {
             return oldItem == newItem
         }
     }
 
-    private val _onItemClicked: LiveEvent<NftModel> =
+    private val _onItemClicked: LiveEvent<NftResultModel> =
         LiveEvent(config = LiveEventConfig.PreferFirstObserver)
-    val onItemClicked: LiveData<NftModel> get() = _onItemClicked
+    val onItemClicked: LiveData<NftResultModel> get() = _onItemClicked
 
 
     class ViewHolder(val binding: RowTradeNftListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(nftModel: NftModel) {
-            binding.nftModel = nftModel
+        fun bind(nftResultModel: NftResultModel) {
+            binding.nftResultModel = nftResultModel
 
             binding.executePendingBindings()
         }
@@ -82,7 +83,7 @@ class TradeNftListRecAdapter :
         }
     }
 
-    fun setList(newData: List<NftModel>) {
+    fun setList(newData: List<NftResultModel>) {
         try {
             submitList(newData)
         } catch (e: Exception) {

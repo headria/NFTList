@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentTransactionFeeBinding
 import com.arabnetwork.nft.models.TransactionFeeModel
-import com.arabnetwork.nft.utils.fragments.BaseDialogFragment
+import com.arabnetwork.nft.util.fragments.BaseDialogFragment
 
 class TransactionFeeFragment : BaseDialogFragment(), View.OnClickListener {
 

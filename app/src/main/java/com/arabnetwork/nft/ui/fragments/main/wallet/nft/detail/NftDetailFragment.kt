@@ -1,18 +1,15 @@
 package com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentNftDetailBinding
 import com.arabnetwork.nft.models.NftModel
-import com.arabnetwork.nft.ui.fragments.main.wallet.nft.TradeFragment
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer.TransferFeeFragment.Companion.TRANSFER_FEE_FRAGMENT_NFT_MODEL_KEY
-import com.arabnetwork.nft.utils.fragments.BaseDialogFragment
+import com.arabnetwork.nft.util.fragments.BaseDialogFragment
 
 class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
 

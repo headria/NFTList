@@ -11,7 +11,7 @@ import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentWalletBinding
 import com.arabnetwork.nft.ui.fragments.main.wallet.adapter.WalletNetworkListRecAdapter
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.TradeFragment.Companion.TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY
-import com.arabnetwork.nft.utils.StaticListConstants.Companion.WALLET___NETWORK___LIST
+import com.arabnetwork.nft.util.constants.StaticListConstants.Companion.WALLET___NETWORK___LIST
 
 class WalletFragment : Fragment() {
 

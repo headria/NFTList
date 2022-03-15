@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.arabnetwork.nft.R
-import com.arabnetwork.nft.databinding.FragmentTransactionFeeBinding
 import com.arabnetwork.nft.databinding.FragmentTransactionFeeSettingBinding
 import com.arabnetwork.nft.models.TransactionFeeModel
-import com.arabnetwork.nft.utils.fragments.BaseDialogFragment
+import com.arabnetwork.nft.util.fragments.BaseDialogFragment
 
 class TransactionFeeSettingFragment : BaseDialogFragment(), View.OnClickListener {
 
