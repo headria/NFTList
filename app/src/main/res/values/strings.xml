@@ -21,4 +21,8 @@
     <string name="medium">Medium</string>
     <string name="fast">fast</string>
     <string name="estimated">estimated</string>
+    <string name="gas_limit">Gas Limit</string>
+    <string name="gas_price">Gas Price</string>
+    <string name="save">Save</string>
+    <string name="transaction_data">Transaction Data</string>
 </resources>

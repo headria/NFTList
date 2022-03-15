@@ -36,202 +36,93 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/transaction_fee_cns_slow"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/transaction_fee_setting_til_gas_price"
+                style="@style/MyTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+                android:hint="@string/gas_price"
+                android:textSize="@dimen/custom_search_view_edt_text_size_large"
+                app:boxBackgroundColor="@color/search_view_bg_color"
+                app:hintTextColor="@color/border_blue_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transaction_fee_cns_total_fee">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/transaction_fee_setting_edt_gas_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                    android:hint="gas price"
-                    app:layout_constraintTop_toBottomOf="@+id/transaction_fee_cns_total_fee"
-                    style="@style/MyTextInputLayout"
-                    app:boxStrokeColor = "@android:color/holo_purple"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    >
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/custom_search_view_edt_text_size_large"
+                    android:theme="@style/MyTextInputEditText" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:theme="@style/MyTextInputEditText"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/transaction_fee_cns_medium"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/transaction_fee_setting_til_gas_limit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
                 android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
                 android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                android:background="@drawable/drawable_search_view_bg"
+                style="@style/MyTextInputLayout"
+                android:hint="@string/gas_limit"
+                android:textSize="@dimen/custom_search_view_edt_text_size_large"
+                app:boxBackgroundColor="@color/search_view_bg_color"
+                app:hintTextColor="@color/border_blue_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transaction_fee_cns_slow">
+                app:layout_constraintTop_toBottomOf="@+id/transaction_fee_setting_til_gas_price">
 
-                <TextView
-                    android:id="@+id/transaction_fee_tv_medium_txt"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/transaction_fee_setting_edt_gas_limit"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:fontFamily="@font/sans_bold"
-                    android:text="@string/medium"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/custom_search_view_edt_text_size_large"
-                    app:layout_constraintBottom_toTopOf="@+id/transaction_fee_tv_medium_gwei"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <TextView
-                    android:id="@+id/transaction_fee_tv_medium_gwei"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
-                    android:fontFamily="@font/sans_regular"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/text_gray_color"
-                    android:textSize="@dimen/custom_search_view_edt_text_size_medium"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/transaction_fee_tv_medium_txt" />
-
-
-                <TextView
-                    android:id="@+id/transaction_fee_tv_medium_min"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                    android:fontFamily="@font/sans_bold"
-                    android:textAlignment="viewStart"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/custom_search_view_edt_text_size_large"
-                    app:layout_constraintBottom_toTopOf="@+id/transaction_fee_tv_medium_estimated"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
+                    android:theme="@style/MyTextInputEditText" />
 
-                <TextView
-                    android:id="@+id/transaction_fee_tv_medium_estimated"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                    android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
-                    android:fontFamily="@font/sans_regular"
-                    android:text="@string/estimated"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/text_gray_color"
-                    android:textSize="@dimen/custom_search_view_edt_text_size_medium"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintTop_toBottomOf="@+id/transaction_fee_tv_medium_min" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/transaction_fee_cns_fast"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/transaction_fee_setting_til_transaction_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
                 android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
                 android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
-                android:background="@drawable/drawable_search_view_bg"
+                style="@style/MyTextInputLayout"
+                android:hint="@string/transaction_data"
+                android:textSize="@dimen/custom_search_view_edt_text_size_large"
+                app:boxBackgroundColor="@color/search_view_bg_color"
+                app:hintTextColor="@color/border_blue_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transaction_fee_cns_medium">
+                android:layout_marginBottom="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/transaction_fee_setting_til_gas_limit">
 
-                <TextView
-                    android:id="@+id/transaction_fee_tv_fast_txt"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/transaction_fee_setting_edt_transaction_data"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:fontFamily="@font/sans_bold"
-                    android:text="@string/fast"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/custom_search_view_edt_text_size_large"
-                    app:layout_constraintBottom_toTopOf="@+id/transaction_fee_tv_fast_gwei"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <TextView
-                    android:id="@+id/transaction_fee_tv_fast_gwei"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
-                    android:fontFamily="@font/sans_regular"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/text_gray_color"
-                    android:textSize="@dimen/custom_search_view_edt_text_size_medium"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/transaction_fee_tv_fast_txt" />
-
-                <TextView
-                    android:id="@+id/transaction_fee_tv_fast_min"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                    android:fontFamily="@font/sans_bold"
-                    android:textAlignment="viewStart"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/custom_search_view_edt_text_size_large"
-                    app:layout_constraintBottom_toTopOf="@+id/transaction_fee_tv_fast_estimated"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
+                    android:theme="@style/MyTextInputEditText" />
 
-                <TextView
-                    android:id="@+id/transaction_fee_tv_fast_estimated"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
-                    android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                    android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
-                    android:fontFamily="@font/sans_regular"
-                    android:text="@string/estimated"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/text_gray_color"
-                    android:textSize="@dimen/custom_search_view_edt_text_size_medium"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintTop_toBottomOf="@+id/transaction_fee_tv_fast_min" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/transaction_fee_confirm_btn"
+            android:id="@+id/transaction_fee_setting_save_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
@@ -239,7 +130,7 @@
             android:layout_marginBottom="32dp"
             android:background="@drawable/gradient_bg_btn"
             android:fontFamily="@font/sans_bold"
-            android:text="@string/confirm"
+            android:text="@string/save"
             android:textColor="@color/white"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
             app:layout_constraintBottom_toBottomOf="parent"
