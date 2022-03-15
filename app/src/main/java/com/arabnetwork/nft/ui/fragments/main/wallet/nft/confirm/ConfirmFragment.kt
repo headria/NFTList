@@ -1,7 +1,6 @@
 package com.arabnetwork.nft.ui.fragments.main.wallet.nft.confirm
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import com.arabnetwork.nft.databinding.FragmentConfirmBinding
 import com.arabnetwork.nft.models.ConfirmModel
 import com.arabnetwork.nft.models.TransactionFeeModel
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.transactionFee.TransactionFeeFragment.Companion.TRANSACTION_FEE_FRAGMENT_TRANSACTION_FEE_MODEL_KEY
-import com.arabnetwork.nft.utils.fragments.BaseDialogFragment
+import com.arabnetwork.nft.util.fragments.BaseDialogFragment
 
 class ConfirmFragment : BaseDialogFragment(), View.OnClickListener{
 

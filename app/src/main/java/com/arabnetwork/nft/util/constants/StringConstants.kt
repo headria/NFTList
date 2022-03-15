@@ -1,4 +1,4 @@
-package com.arabnetwork.nft.utils
+package com.arabnetwork.nft.util.constants
 
 class StringConstants {
 

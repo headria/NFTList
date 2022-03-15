@@ -1,4 +1,4 @@
-package com.arabnetwork.nft.utils.fragments
+package com.arabnetwork.nft.util.fragments
 
 import android.os.Bundle
 import android.view.View

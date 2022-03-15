@@ -1,4 +1,4 @@
-package com.arabnetwork.nft.utils
+package com.arabnetwork.nft.util.constants
 
 import com.arabnetwork.nft.models.NftModel
 import com.arabnetwork.nft.models.NetworkModel
