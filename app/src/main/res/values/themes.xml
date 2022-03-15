@@ -37,11 +37,11 @@
     </style>
 
     <style name="MyTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:textColorHint">@color/border_blue_color</item>
+        <item name="android:textColorHint">@color/half_gray_color</item>
         <item name="boxStrokeColor">@color/border_blue_color</item>
     </style>
 
     <style name="MyTextInputEditText" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 </resources>
