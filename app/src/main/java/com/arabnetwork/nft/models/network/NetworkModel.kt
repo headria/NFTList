@@ -1,5 +1,9 @@
 package com.arabnetwork.nft.models.network
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class NetworkModel(
 
     var networkId: String? = "",
@@ -11,7 +15,8 @@ data class NetworkModel(
     var networkIcon: Int? = 0,
 
     var networkNftCount: String? = ""
-)
+
+) : Parcelable
 
 
 

@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
+
+        <variable
+            name="networkModel"
+            type="com.arabnetwork.nft.models.network.NetworkModel" />
 
         <variable
             name="nftViewModel"
@@ -15,52 +20,71 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_bg_color"
-        tools:context=".ui.fragments.main.wallet.nft.TradeFragment">
+        tools:context=".ui.fragments.main.wallet.nft.NftFragment">
 
         <include
-            android:id="@+id/toolbar_trade"
-            layout="@layout/toolbar_trade" />
+            android:id="@+id/toolbar_nft"
+            layout="@layout/toolbar_nft"
+            app:networkModel="@{networkModel}" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/trade_tv_coin_symbol_title"
+            android:id="@+id/nft_tv_network_symbol_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
             android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
             android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:maxLines="1"
+            android:text="@{networkModel.networkSymbol + ` - NFT List`}"
             android:fontFamily="@font/sans_bold"
             android:textAlignment="viewStart"
             android:textColor="@color/network_list_title_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_trade" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_nft" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/trade_nft_list_rec"
+            android:id="@+id/nft_rec"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:visibility="@{nftViewModel.isNftRecVisible ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trade_tv_coin_symbol_title" />
+            app:layout_constraintTop_toBottomOf="@+id/nft_tv_network_symbol_title" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/sans_bold"
+            android:text="@{nftViewModel.textViewMsg}"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/custom_search_view_edt_text_size_large"
+            android:visibility="@{nftViewModel.isNftListEmpty ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:alpha="1"
-            android:background="@color/loading_bg_color"
-            android:visibility="@{nftViewModel.isProgressEnable() ? View.VISIBLE : View.INVISIBLE}"
+            android:background="@android:color/transparent"
+            android:visibility="@{nftViewModel.isProgressEnable ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ProgressBar
-                android:id="@+id/portfolio_progress_remove_pt"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="32dp"
                 android:layout_height="32dp"

@@ -8,54 +8,52 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.arabnetwork.nft.databinding.RowTradeNftListItemBinding
-import com.arabnetwork.nft.models.NftModel
+import com.arabnetwork.nft.databinding.RowNftListItemBinding
 import com.arabnetwork.nft.models.nft.NftResultModel
 import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
 
 
-class TradeNftListRecAdapter :
-    ListAdapter<NftModel, TradeNftListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
+class NftListRecAdapter :
+    ListAdapter<NftResultModel, NftListRecAdapter.ViewHolder>(NftListDiffUtils) {
 
     companion object {
-        private const val TAG = "TradeNftListRecAdapter"
+        private const val TAG = "NftListRecAdapter"
     }
 
-    object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NftModel>() {
+    object NftListDiffUtils : DiffUtil.ItemCallback<NftResultModel>() {
         override fun areItemsTheSame(
-            oldItem: NftModel,
-            newItem: NftModel
+            oldItem: NftResultModel,
+            newItem: NftResultModel
         ): Boolean {
-            return oldItem.nftId == newItem.nftId
+            return oldItem.tokenId == newItem.tokenId
         }
 
         override fun areContentsTheSame(
-            oldItem: NftModel,
-            newItem: NftModel
+            oldItem: NftResultModel,
+            newItem: NftResultModel
         ): Boolean {
             return oldItem == newItem
         }
     }
 
-    private val _onItemClicked: LiveEvent<NftModel> =
+    private val _onItemClicked: LiveEvent<NftResultModel> =
         LiveEvent(config = LiveEventConfig.PreferFirstObserver)
-    val onItemClicked: LiveData<NftModel> get() = _onItemClicked
+    val onItemClicked: LiveData<NftResultModel> get() = _onItemClicked
 
 
-    class ViewHolder(val binding: RowTradeNftListItemBinding) :
+    class ViewHolder(val binding: RowNftListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(nftResultModel: NftModel) {
-            binding.nftModel = nftResultModel
-
+        fun bind(nftResultModel: NftResultModel) {
+            binding.nftResultModel = nftResultModel
             binding.executePendingBindings()
         }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = RowTradeNftListItemBinding.inflate(layoutInflater, parent, false)
+                val binding = RowNftListItemBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
@@ -83,7 +81,7 @@ class TradeNftListRecAdapter :
         }
     }
 
-    fun setList(newData: List<NftModel>) {
+    fun setList(newData: List<NftResultModel>) {
         try {
             submitList(newData)
         } catch (e: Exception) {
