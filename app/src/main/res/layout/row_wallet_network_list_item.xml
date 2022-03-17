@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <data>
-
         <variable
-            name="symbolModel"
-            type="com.arabnetwork.nft.models.NetworkModel" />
+            name="networkModel"
+            type="com.arabnetwork.nft.models.network.NetworkModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,11 +19,11 @@
 
 
         <ImageView
-            android:id="@+id/row_wallet_symbol_list_iv_coin_icon"
-            loadImageFromUrl="@{symbolModel.networkIcon}"
+            android:id="@+id/row_wallet_network_list_iv_coin_icon"
+            loadImageFromDrawable="@{networkModel.networkIcon}"
             android:layout_width="52dp"
             android:layout_height="52dp"
-            app:layout_constraintBottom_toTopOf="@+id/row_wallet_symbol_list_tv_coin_name"
+            app:layout_constraintBottom_toTopOf="@+id/row_wallet_network_list_tv_network_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,20 +32,23 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/row_wallet_symbol_list_tv_coin_name"
+            android:id="@+id/row_wallet_network_list_tv_network_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
             android:fontFamily="@font/sans_regular"
             android:textAlignment="center"
-            android:text="@{symbolModel.networkName}"
+            android:text="@{networkModel.networkName}"
             android:textColor="@color/network_name_text_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
             app:layout_constraintBottom_toTopOf="@+id/row_wallet_symbol_list_tv_coin_nft_counts"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/row_wallet_symbol_list_iv_coin_icon" />
+            tools:text = ""
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
+            app:layout_constraintTop_toBottomOf="@+id/row_wallet_network_list_iv_coin_icon" />
 
         <TextView
             android:id="@+id/row_wallet_symbol_list_tv_coin_nft_counts"
@@ -52,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/custom_search_view_edt_padding_top"
             android:fontFamily="@font/sans_regular"
-            android:text="@{symbolModel.networkNftCount}"
+            android:text="@{networkModel.networkNftCount}"
             android:textAlignment="center"
             android:textColor="@color/search_view_edt_text_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
@@ -61,7 +65,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/row_wallet_symbol_list_tv_coin_name" />
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/row_wallet_network_list_tv_network_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

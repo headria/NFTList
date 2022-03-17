@@ -16,38 +16,38 @@ import com.hadilq.liveevent.LiveEventConfig
 
 
 class TradeNftListRecAdapter :
-    ListAdapter<NftResultModel, TradeNftListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
+    ListAdapter<NftModel, TradeNftListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
 
     companion object {
         private const val TAG = "TradeNftListRecAdapter"
     }
 
-    object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NftResultModel>() {
+    object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NftModel>() {
         override fun areItemsTheSame(
-            oldItem: NftResultModel,
-            newItem: NftResultModel
+            oldItem: NftModel,
+            newItem: NftModel
         ): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.nftId == newItem.nftId
         }
 
         override fun areContentsTheSame(
-            oldItem: NftResultModel,
-            newItem: NftResultModel
+            oldItem: NftModel,
+            newItem: NftModel
         ): Boolean {
             return oldItem == newItem
         }
     }
 
-    private val _onItemClicked: LiveEvent<NftResultModel> =
+    private val _onItemClicked: LiveEvent<NftModel> =
         LiveEvent(config = LiveEventConfig.PreferFirstObserver)
-    val onItemClicked: LiveData<NftResultModel> get() = _onItemClicked
+    val onItemClicked: LiveData<NftModel> get() = _onItemClicked
 
 
     class ViewHolder(val binding: RowTradeNftListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(nftResultModel: NftResultModel) {
-            binding.nftResultModel = nftResultModel
+        fun bind(nftResultModel: NftModel) {
+            binding.nftModel = nftResultModel
 
             binding.executePendingBindings()
         }
@@ -83,7 +83,7 @@ class TradeNftListRecAdapter :
         }
     }
 
-    fun setList(newData: List<NftResultModel>) {
+    fun setList(newData: List<NftModel>) {
         try {
             submitList(newData)
         } catch (e: Exception) {
