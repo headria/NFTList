@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentWalletBinding
 import com.arabnetwork.nft.ui.fragments.main.wallet.adapter.WalletNetworkListRecAdapter
-import com.arabnetwork.nft.ui.fragments.main.wallet.nft.TradeFragment.Companion.TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.NftFragment.Companion.NFT_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY
 import com.arabnetwork.nft.util.constants.StaticListConstants.Companion.WALLET_NETWORK_LIST
 
 class WalletFragment : Fragment() {
@@ -59,8 +59,8 @@ class WalletFragment : Fragment() {
             setList(WALLET_NETWORK_LIST)
 
             onItemClicked.observe(viewLifecycleOwner) {
-                findNavController().navigate(R.id.tradeFragment, Bundle().apply {
-                    putString(TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY,it.networkSymbol)
+                findNavController().navigate(R.id.nftFragment, Bundle().apply {
+                    putParcelable(NFT_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY,it)
                 })
             }
         }

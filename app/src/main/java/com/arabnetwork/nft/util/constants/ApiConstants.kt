@@ -12,5 +12,9 @@ class ApiConstants {
         const val ERROR_NO_SERVER = "Unable to resolve host"
         const val ERROR_NO_NETWORK = "No Internet Connection."
         const val UNKNOWN_ERROR = "Unknown Error."
+
+        // nft list
+        const val NFT_LIST_IS_EMPTY = "Nft List is Empty"
+        const val NFT_LIST_IS_NOT_EMPTY = ""
     }
 }

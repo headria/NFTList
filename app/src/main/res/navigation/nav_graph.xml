@@ -26,11 +26,12 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
-        android:id="@+id/tradeFragment"
-        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.TradeFragment"
-        android:label="TradeFragment"
-        tools:layout="@layout/fragment_trade"
+        android:id="@+id/nftFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.NftFragment"
+        android:label="NftFragment"
+        tools:layout="@layout/fragment_nft"
         />
+
     <dialog
         android:id="@+id/nftDetailFragment"
         android:name="com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail.NftDetailFragment"
@@ -59,4 +60,5 @@
         android:label="TransactionFeeSettingFragment"
         tools:layout="@layout/fragment_transaction_fee_setting"
         />
+
 </navigation>
