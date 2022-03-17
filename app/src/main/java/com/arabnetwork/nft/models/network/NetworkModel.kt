@@ -1,4 +1,4 @@
-package com.arabnetwork.nft.models
+package com.arabnetwork.nft.models.network
 
 data class NetworkModel(
 
@@ -8,7 +8,7 @@ data class NetworkModel(
 
     var networkSymbol: String? = "",
 
-    var networkIcon: String? = "",
+    var networkIcon: Int? = 0,
 
     var networkNftCount: String? = ""
 )

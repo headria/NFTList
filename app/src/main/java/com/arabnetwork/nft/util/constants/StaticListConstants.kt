@@ -1,67 +1,96 @@
 package com.arabnetwork.nft.util.constants
 
+import com.arabnetwork.nft.R
 import com.arabnetwork.nft.models.NftModel
-import com.arabnetwork.nft.models.NetworkModel
+import com.arabnetwork.nft.models.network.NetworkModel
 
 class StaticListConstants {
 
     companion object {
 
-        val WALLET___NETWORK___LIST: List<NetworkModel> = listOf(
+        val WALLET_NETWORK_LIST: List<NetworkModel> = listOf(
             NetworkModel(
                 networkId = "1",
                 networkName = "Bitcoin",
                 networkSymbol = "BTC",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+                networkIcon = R.drawable.ic_btc_bitcoin,
                 networkNftCount = "16 NFT"
             ),
             NetworkModel(
                 networkId = "2",
                 networkName = "Ethereum",
                 networkSymbol = "ETH",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+                networkIcon = R.drawable.ic_eth_ethereum,
                 networkNftCount = "16 NFT"
             ),
             NetworkModel(
                 networkId = "3",
                 networkName = "Tether",
                 networkSymbol = "USDT",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+                networkIcon = R.drawable.ic_usdt_tether,
                 networkNftCount = "16 NFT"
             ),
             NetworkModel(
                 networkId = "4",
                 networkName = "Binance Coin",
                 networkSymbol = "BNB",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png",
+                networkIcon = R.drawable.ic_bnb_binance,
                 networkNftCount = "16 NFT"
             ),
             NetworkModel(
                 networkId = "5",
-                networkName = "USD Coin",
-                networkSymbol = "USDC",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+                networkName = "Binance Smart",
+                networkSymbol = "BEP20",
+                networkIcon = R.drawable.ic_bnb_binance_smart,
                 networkNftCount = "16 NFT"
             ),
             NetworkModel(
                 networkId = "6",
-                networkName = "XRP",
-                networkSymbol = "XRP",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/52.png",
+                networkName = "Cardano",
+                networkSymbol = "ADA",
+                networkIcon = R.drawable.ic_ada_cardano,
                 networkNftCount = "16 NFT"
             ),
             NetworkModel(
                 networkId = "7",
-                networkName = "Terra",
-                networkSymbol = "LUNA",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png",
+                networkName = "XRP",
+                networkSymbol = "XRP",
+                networkIcon = R.drawable.ic_ripple_xrp,
                 networkNftCount = "16 NFT"
             ),
             NetworkModel(
                 networkId = "8",
-                networkName = "Cardano",
-                networkSymbol = "Ada",
-                networkIcon = "https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png",
+                networkName = "Decentraland",
+                networkSymbol = "MANA",
+                networkIcon = R.drawable.ic_mana_decentraland,
+                networkNftCount = "16 NFT"
+            ),
+            NetworkModel(
+                networkId = "9",
+                networkName = "Polygon",
+                networkSymbol = "MATIC",
+                networkIcon = R.drawable.ic_matic_polygon,
+                networkNftCount = "16 NFT"
+            ),
+            NetworkModel(
+                networkId = "10",
+                networkName = "The Sandbox",
+                networkSymbol = "SAND",
+                networkIcon = R.drawable.ic_sand_sandbox,
+                networkNftCount = "16 NFT"
+            ),
+            NetworkModel(
+                networkId = "11",
+                networkName = "NEAR Protocol",
+                networkSymbol = "NEAR",
+                networkIcon = R.drawable.ic_near_near_protocol,
+                networkNftCount = "16 NFT"
+            ),
+            NetworkModel(
+                networkId = "12",
+                networkName = "TRON",
+                networkSymbol = "TRX",
+                networkIcon = R.drawable.ic_trx_tron,
                 networkNftCount = "16 NFT"
             ),
         )

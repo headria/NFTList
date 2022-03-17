@@ -13,5 +13,12 @@ class WalletNetworkListBindingAdapter {
         fun loadImageFromUrl(imageView: ImageView, imageUrl: String?) {
             imageView.load(imageUrl)
         }
+
+
+        @BindingAdapter("loadImageFromDrawable")
+        @JvmStatic
+        fun loadImageFromDrawable(imageView: ImageView, drawable: Int) {
+            imageView.load(drawable)
+        }
     }
 }

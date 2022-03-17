@@ -8,8 +8,8 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.arabnetwork.nft.databinding.RowWalletSymbolListItemBinding
-import com.arabnetwork.nft.models.NetworkModel
+import com.arabnetwork.nft.databinding.RowWalletNetworkListItemBinding
+import com.arabnetwork.nft.models.network.NetworkModel
 import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
 
@@ -18,7 +18,7 @@ class WalletNetworkListRecAdapter :
     ListAdapter<NetworkModel, WalletNetworkListRecAdapter.ViewHolder>(WalletSymbolListDiffUtils) {
 
     companion object {
-        private const val TAG = "WalletSymbolListRecAdapter"
+        private const val TAG = "WalletNetworkListRecAdapter"
     }
 
     object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NetworkModel>() {
@@ -42,11 +42,11 @@ class WalletNetworkListRecAdapter :
     val onItemClicked: LiveData<NetworkModel> get() = _onItemClicked
 
 
-    class ViewHolder(val binding: RowWalletSymbolListItemBinding) :
+    class ViewHolder(val binding: RowWalletNetworkListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(networkModel: NetworkModel) {
-            binding.symbolModel = networkModel
+            binding.networkModel = networkModel
 
             binding.executePendingBindings()
         }
@@ -54,7 +54,7 @@ class WalletNetworkListRecAdapter :
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = RowWalletSymbolListItemBinding.inflate(layoutInflater, parent, false)
+                val binding = RowWalletNetworkListItemBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
