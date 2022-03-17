@@ -13,7 +13,7 @@ import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentNftBinding
 import com.arabnetwork.nft.models.network.NetworkModel
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.adapter.NftListRecAdapter
-import com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail.NftDetailFragment.Companion.NFT_DETAIL_FRAGMENT_NFT_MODEL_KEY
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail.NftDetailFragment.Companion.NFT_DETAIL_FRAGMENT_NFT_RESULT_MODEL_KEY
 import com.arabnetwork.nft.viewModels.NftViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -106,7 +106,7 @@ class NftFragment : Fragment(), View.OnClickListener {
         mNftListRecAdapter = NftListRecAdapter().apply {
             onItemClicked.observe(viewLifecycleOwner) {
                 findNavController().navigate(R.id.nftDetailFragment, Bundle().apply {
-                    putParcelable(NFT_DETAIL_FRAGMENT_NFT_MODEL_KEY, it)
+                    putParcelable(NFT_DETAIL_FRAGMENT_NFT_RESULT_MODEL_KEY, it)
                 })
             }
         }

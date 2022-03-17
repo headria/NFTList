@@ -15,19 +15,22 @@ import java.util.regex.Pattern
 
 object NftUtil {
 
-    fun nftImageLoader(imageView: ImageView, jsonObject: String) {
+    private fun fromJson(jsonObject: String): JsonObject? {
         val gson = Gson()
         val type = object : TypeToken<JsonObject>() {}.type
-        val errorResponse: JsonObject? =
-            gson.fromJson(jsonObject, type)
+        return gson.fromJson(jsonObject, type)
+    }
 
-        val imageUrl = errorResponse?.asJsonObject?.get("image").toString()
+    fun nftImageLoader(imageView: ImageView, jsonObject: String) {
+
+        val imageUrl = fromJson(jsonObject)?.asJsonObject?.get("image").toString()
         val result = removeDoubleQuotationFromString(quotationStr = imageUrl)
         if (!isContainVideo(result))
-            imageView.loadAny(result, imageLoader = ImageLoader.Builder(imageView.context)
-                .componentRegistry {
-                    add(SvgDecoder(imageView.context))
-                }
+            imageView.loadAny(
+                result, imageLoader = ImageLoader.Builder(imageView.context)
+                    .componentRegistry {
+                        add(SvgDecoder(imageView.context))
+                    }
                 .build())
         else
             imageView.load(R.drawable.ic_play)
@@ -42,6 +45,14 @@ object NftUtil {
         val pattern: Pattern = Pattern.compile(patternString)
         val matcher: Matcher = pattern.matcher(str)
         return matcher.find()
+    }
+
+    fun nftDescription(jsonObject: String): String {
+        return removeDoubleQuotationFromString(
+            quotationStr = fromJson(jsonObject)?.asJsonObject?.get(
+                "description"
+            ).toString()
+        )
     }
 
 }
