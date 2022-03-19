@@ -56,6 +56,40 @@ class ConfirmFragment : BaseDialogFragment(), View.OnClickListener{
         build()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding?.unbind()
+    }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.confirm_btn -> {
+
+            }
+            R.id.toolbar_iv_back -> {
+                dismiss()
+            }
+            R.id.toolbar_iv_confirm_setting -> {
+                findNavController().navigate(R.id.transactionFeeFragment, Bundle().apply {
+                    putParcelable(
+                        TRANSACTION_FEE_FRAGMENT_TRANSACTION_FEE_MODEL_KEY,
+                        TransactionFeeModel().apply {
+                            transFeeTotalFee = "7.13385"
+                            transFeeCurrentGWEI = "0.0024"
+                            transFeeCoinSymbol = "BUSD"
+                            transFeeSlowGWEI = "90 GWEI"
+                            transFeeSlowMin = "3 Min"
+                            transFeeMediumGWEI = "110 GWEI"
+                            transFeeMediumMin = "2 Min"
+                            transFeeFastGWEI = "120 GWEI"
+                            transFeeFastMin = "1 Min"
+                        })
+                })
+            }
+
+        }
+    }
+
     private fun build() {
         setOnClickListener()
     }
@@ -65,32 +99,5 @@ class ConfirmFragment : BaseDialogFragment(), View.OnClickListener{
         mBinding?.toolbarConfirm?.toolbarIvConfirmSetting?.setOnClickListener(this)
         mBinding?.confirmBtn?.setOnClickListener(this)
 
-    }
-
-    override fun onClick(view: View?) {
-        when(view?.id) {
-            R.id.confirm_btn -> {
-
-            }
-            R.id.toolbar_iv_back -> {
-                dismiss()
-            }
-            R.id.toolbar_iv_confirm_setting -> {
-                findNavController().navigate(R.id.transactionFeeFragment, Bundle().apply {
-                    putParcelable(TRANSACTION_FEE_FRAGMENT_TRANSACTION_FEE_MODEL_KEY,TransactionFeeModel().apply {
-                        transFeeTotalFee = "7.13385"
-                        transFeeCurrentGWEI = "0.0024"
-                        transFeeCoinSymbol = "BUSD"
-                        transFeeSlowGWEI = "90 GWEI"
-                        transFeeSlowMin = "3 Min"
-                        transFeeMediumGWEI = "110 GWEI"
-                        transFeeMediumMin = "2 Min"
-                        transFeeFastGWEI = "120 GWEI"
-                        transFeeFastMin = "1 Min"
-                    })
-                })
-            }
-
-        }
     }
 }

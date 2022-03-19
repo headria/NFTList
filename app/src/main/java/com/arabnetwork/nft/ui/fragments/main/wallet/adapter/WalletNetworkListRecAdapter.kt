@@ -12,6 +12,7 @@ import com.arabnetwork.nft.databinding.RowWalletNetworkListItemBinding
 import com.arabnetwork.nft.models.network.NetworkModel
 import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
+import java.util.ArrayList
 
 
 class WalletNetworkListRecAdapter :
@@ -20,6 +21,12 @@ class WalletNetworkListRecAdapter :
     companion object {
         private const val TAG = "WalletNetworkListRecAdapter"
     }
+
+    private var searchList : ArrayList<NetworkModel> = ArrayList()
+
+    private val _isSearchItemAvailable: LiveEvent<Boolean> =
+        LiveEvent(config = LiveEventConfig.PreferFirstObserver)
+    val isSearchItemAvailable: LiveData<Boolean> get() = _isSearchItemAvailable
 
     object WalletSymbolListDiffUtils : DiffUtil.ItemCallback<NetworkModel>() {
         override fun areItemsTheSame(
@@ -82,11 +89,31 @@ class WalletNetworkListRecAdapter :
         }
     }
 
-    fun setList(newData: List<NetworkModel>) {
+    fun setList(newData: List<NetworkModel>,isSearch: Boolean = false) {
         try {
+            if (!isSearch)
+                searchList = ArrayList(newData)
             submitList(newData)
         } catch (e: Exception) {
             Log.e(TAG, "setList: ", e)
+        }
+    }
+
+    fun searchOnNetworkList(searchChar: String) {
+        try {
+            val list = searchList.clone() as ArrayList<NetworkModel>
+            val filtered = list.filter {
+                it.networkName!!.contains(searchChar, true)
+            }.sortedByDescending {
+                it.networkName!!.startsWith(searchChar, true)
+            }
+            if (filtered.isNotEmpty()) {
+                _isSearchItemAvailable.value = true
+                setList((filtered), true)
+            } else
+                _isSearchItemAvailable.value = false
+        } catch (e: java.lang.Exception) {
+            Log.e(TAG, "searchPossibleChar: $e")
         }
     }
 }
