@@ -46,6 +46,6 @@
     </style>
 
     <style name="progressStyle" parent="@style/Theme.AppCompat">
-        <item name="colorAccent">@color/black</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 </resources>

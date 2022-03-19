@@ -1,47 +1,44 @@
 package com.arabnetwork.nft.ui.fragments.main.wallet.nft
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arabnetwork.nft.R
-import com.arabnetwork.nft.databinding.FragmentTradeBinding
-import com.arabnetwork.nft.models.NftModel
-import com.arabnetwork.nft.ui.fragments.main.wallet.nft.adapter.TradeNftListRecAdapter
-import com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail.NftDetailFragment.Companion.NFT_DETAIL_FRAGMENT_NFT_MODEL_KEY
-import com.arabnetwork.nft.util.constants.StaticListConstants.Companion.WALLET_NETWORK_LIST
-import com.arabnetwork.nft.util.constants.StaticListConstants.Companion.trade_nft_list
-import com.arabnetwork.nft.util.constants.StringConstants.Companion.NFT_LIST_TEXT
+import com.arabnetwork.nft.databinding.FragmentNftBinding
+import com.arabnetwork.nft.models.network.NetworkModel
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.adapter.NftListRecAdapter
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail.NftDetailFragment.Companion.NFT_DETAIL_FRAGMENT_NFT_RESULT_MODEL_KEY
 import com.arabnetwork.nft.viewModels.NftViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TradeFragment : Fragment(), View.OnClickListener {
+class NftFragment : Fragment(), View.OnClickListener {
 
     companion object {
-        const val TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY = "coinSymbol"
+        const val NFT_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY = "coinSymbol"
     }
 
     /**
      * binding
      */
-    private var _binding: FragmentTradeBinding? = null
+    private var _binding: FragmentNftBinding? = null
     private val mBinding get() = _binding
 
     /**
      * adapter
      */
-    private lateinit var mTradeNftListRecAdapter: TradeNftListRecAdapter
+    private lateinit var mNftListRecAdapter: NftListRecAdapter
 
     /**
      * variables
      */
-    private var mCoinSymbol: String? = ""
+    private lateinit var mNetworkModel: NetworkModel
 
     /**
      * viewModel
@@ -51,9 +48,10 @@ class TradeFragment : Fragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            requireArguments().getString(TRADE_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY)?.let {
-                mCoinSymbol = it
-            }
+            requireArguments().getParcelable<NetworkModel>(NFT_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY)
+                ?.let {
+                    mNetworkModel = it
+                }
         }
     }
 
@@ -62,9 +60,18 @@ class TradeFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentTradeBinding.inflate(inflater, container, false)
-        return _binding?.root
+        _binding = DataBindingUtil.inflate<FragmentNftBinding?>(
+            inflater,
+            R.layout.fragment_nft,
+            container,
+            false
+        ).apply {
+            this.lifecycleOwner = this@NftFragment
+            this.networkModel = mNetworkModel
+            this.nftViewModel = mNftViewModel
+        }
 
+        return _binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,13 +82,12 @@ class TradeFragment : Fragment(), View.OnClickListener {
 
     private fun build() {
         setOnClickListener()
-        setCoinSymbolTitle()
 
-        initTradeNftListRecAdapter()
-        setupTradeNftListRecView()
+        initNftListRecAdapter()
+        setupNftListRecView()
 
-        //requestGetNftList()
-        //observeNftList()
+        requestGetNftList()
+        observeNftList()
     }
 
     override fun onClick(view: View?) {
@@ -93,30 +99,24 @@ class TradeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setOnClickListener() {
-        mBinding?.toolbarTrade?.toolbarIvBack?.setOnClickListener(this)
+        mBinding?.toolbarNft?.toolbarIvBack?.setOnClickListener(this)
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun setCoinSymbolTitle() {
-        mBinding?.tradeTvCoinSymbolTitle?.text = "$mCoinSymbol - $NFT_LIST_TEXT"
-    }
-
-    private fun initTradeNftListRecAdapter() {
-        mTradeNftListRecAdapter = TradeNftListRecAdapter().apply {
-            setList(trade_nft_list)
+    private fun initNftListRecAdapter() {
+        mNftListRecAdapter = NftListRecAdapter().apply {
             onItemClicked.observe(viewLifecycleOwner) {
                 findNavController().navigate(R.id.nftDetailFragment, Bundle().apply {
-                    putParcelable(NFT_DETAIL_FRAGMENT_NFT_MODEL_KEY,it)
+                    putParcelable(NFT_DETAIL_FRAGMENT_NFT_RESULT_MODEL_KEY, it)
                 })
             }
         }
     }
 
 
-    private fun setupTradeNftListRecView() {
-        mBinding?.tradeNftListRec?.apply {
+    private fun setupNftListRecView() {
+        mBinding?.nftRec?.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
-            adapter = mTradeNftListRecAdapter
+            adapter = mNftListRecAdapter
         }
     }
 
@@ -127,7 +127,7 @@ class TradeFragment : Fragment(), View.OnClickListener {
 
     private fun observeNftList() {
         mNftViewModel.nftRes.observe(viewLifecycleOwner) {
-            //mTradeNftListRecAdapter.setList(it.nftResultModelList)
+            mNftListRecAdapter.setList(it.nftResultModelList)
         }
     }
 }
