@@ -56,13 +56,9 @@ class TransactionFeeFragment : BaseDialogFragment(), View.OnClickListener {
         build()
     }
 
-    private fun build() {
-        setOnClickListener()
-    }
-
-    private fun setOnClickListener() {
-        mBinding?.toolbarTransactionFee?.toolbarIvBack?.setOnClickListener(this)
-        mBinding?.toolbarTransactionFee?.toolbarIvSetting?.setOnClickListener(this)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding?.unbind()
     }
 
     override fun onClick(view: View?) {
@@ -75,4 +71,14 @@ class TransactionFeeFragment : BaseDialogFragment(), View.OnClickListener {
             }
         }
     }
+
+    private fun build() {
+        setOnClickListener()
+    }
+
+    private fun setOnClickListener() {
+        mBinding?.toolbarTransactionFee?.toolbarIvBack?.setOnClickListener(this)
+        mBinding?.toolbarTransactionFee?.toolbarIvSetting?.setOnClickListener(this)
+    }
+
 }

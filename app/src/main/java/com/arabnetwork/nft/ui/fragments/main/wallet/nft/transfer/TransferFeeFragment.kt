@@ -1,11 +1,9 @@
 package com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -47,7 +45,6 @@ class TransferFeeFragment : BaseDialogFragment(), View.OnClickListener {
                 mNftResultModel = it
             }
             requireArguments().getString(TRANSFER_FEE_FRAGMENT_NFT_TOKEN_ADDRESS_KEY)?.let {
-                Log.d(TAG, "onCreate: mPasteTokenAddressValue $it")
                 mPasteTokenAddressValue = it
             }
         }
@@ -64,7 +61,7 @@ class TransferFeeFragment : BaseDialogFragment(), View.OnClickListener {
             container,
             false
         ).apply {
-            this.lifecycleOwner = this@TransferFeeFragment
+            this.lifecycleOwner = viewLifecycleOwner
             this.nftResultModel = mNftResultModel
         }
 
@@ -77,16 +74,9 @@ class TransferFeeFragment : BaseDialogFragment(), View.OnClickListener {
         build()
     }
 
-    private fun build() {
-        setOnClickListener()
-    }
-
-    private fun setOnClickListener() {
-        mBinding?.transferFeeToolbar?.toolbarIvBack?.setOnClickListener(this)
-        mBinding?.transferFeeBtnSend?.setOnClickListener(this)
-        mBinding?.transferFeeCnsPaste?.setOnClickListener(this)
-        mBinding?.transferFeeTvPasteTxt?.setOnClickListener(this)
-        mBinding?.transferFeeIvPasteIcon?.setOnClickListener(this)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding?.unbind()
     }
 
     override fun onClick(view: View?) {
@@ -115,6 +105,17 @@ class TransferFeeFragment : BaseDialogFragment(), View.OnClickListener {
         }
     }
 
+    private fun build() {
+        setOnClickListener()
+    }
+
+    private fun setOnClickListener() {
+        mBinding?.transferFeeToolbar?.toolbarIvBack?.setOnClickListener(this)
+        mBinding?.transferFeeBtnSend?.setOnClickListener(this)
+        mBinding?.transferFeeCnsPaste?.setOnClickListener(this)
+        mBinding?.transferFeeTvPasteTxt?.setOnClickListener(this)
+        mBinding?.transferFeeIvPasteIcon?.setOnClickListener(this)
+    }
 
     private fun handlePasteAction() {
         mPasteTokenAddressValue?.let {

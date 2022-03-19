@@ -68,7 +68,7 @@ class NftFragment : Fragment(), View.OnClickListener {
             container,
             false
         ).apply {
-            this.lifecycleOwner = this@NftFragment
+            this.lifecycleOwner = viewLifecycleOwner
             this.networkModel = mNetworkModel
             this.nftViewModel = mNftViewModel
         }
@@ -82,14 +82,9 @@ class NftFragment : Fragment(), View.OnClickListener {
         build()
     }
 
-    private fun build() {
-        setOnClickListener()
-
-        initNftListRecAdapter()
-        setupNftListRecView()
-
-        requestGetNftList()
-        observeNftList()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding?.unbind()
     }
 
     override fun onClick(view: View?) {
@@ -98,6 +93,16 @@ class NftFragment : Fragment(), View.OnClickListener {
                 findNavController().navigate(R.id.walletFragment)
             }
         }
+    }
+
+    private fun build() {
+        setOnClickListener()
+
+        initNftListRecAdapter()
+        setupNftListRecView()
+
+        requestGetNftList()
+        observeNftList()
     }
 
     private fun setOnClickListener() {

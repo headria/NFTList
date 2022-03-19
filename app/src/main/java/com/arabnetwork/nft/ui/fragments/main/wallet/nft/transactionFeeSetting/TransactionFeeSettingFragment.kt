@@ -49,13 +49,11 @@ class TransactionFeeSettingFragment : BaseDialogFragment(), View.OnClickListener
         build()
     }
 
-    private fun build() {
-        setOnClickListener()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding?.unbind()
     }
 
-    private fun setOnClickListener() {
-        mBinding?.toolbarTransactionFee?.toolbarIvBack?.setOnClickListener(this)
-    }
 
     override fun onClick(view: View?) {
         when (view?.id) {
@@ -63,5 +61,13 @@ class TransactionFeeSettingFragment : BaseDialogFragment(), View.OnClickListener
                 dismiss()
             }
         }
+    }
+
+    private fun build() {
+        setOnClickListener()
+    }
+
+    private fun setOnClickListener() {
+        mBinding?.toolbarTransactionFee?.toolbarIvBack?.setOnClickListener(this)
     }
 }

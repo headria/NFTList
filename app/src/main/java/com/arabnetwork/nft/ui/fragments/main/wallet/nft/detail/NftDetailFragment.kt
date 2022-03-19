@@ -66,7 +66,7 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
             container,
             false
         ).apply {
-            this.lifecycleOwner = this@NftDetailFragment
+            this.lifecycleOwner = viewLifecycleOwner
             this.nftResultModel = mNftResultModel
             this.nftViewModel = mNftViewModel
             ShareUtil.fragment = this@NftDetailFragment
@@ -80,17 +80,9 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
         build()
     }
 
-    private fun build() {
-        setOnClickListener()
-
-        requestGetNftTrade()
-    }
-
-    private fun setOnClickListener() {
-        mBinding?.nftDetailToolbar?.toolbarIvBack?.setOnClickListener(this)
-        mBinding?.nftDetailBtnSend?.setOnClickListener(this)
-        mBinding?.nftDetailIvNftShare?.setOnClickListener(this)
-        mBinding?.nftDetailTvCopy?.setOnClickListener(this)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding?.unbind()
     }
 
     override fun onClick(view: View?) {
@@ -117,6 +109,18 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
         }
     }
 
+
+    private fun build() {
+        setOnClickListener()
+        requestGetNftTrade()
+    }
+
+    private fun setOnClickListener() {
+        mBinding?.nftDetailToolbar?.toolbarIvBack?.setOnClickListener(this)
+        mBinding?.nftDetailBtnSend?.setOnClickListener(this)
+        mBinding?.nftDetailIvNftShare?.setOnClickListener(this)
+        mBinding?.nftDetailTvCopy?.setOnClickListener(this)
+    }
 
     private fun requestGetNftTrade() {
         mNftResultModel.tokenAddress?.let {
