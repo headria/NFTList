@@ -1,22 +1,19 @@
 package com.arabnetwork.nft.ui.fragments.main.wallet.nft.detail
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.arabnetwork.nft.R
-import com.arabnetwork.nft.databinding.FragmentNftBinding
 import com.arabnetwork.nft.databinding.FragmentNftDetailBinding
-import com.arabnetwork.nft.models.NftModel
 import com.arabnetwork.nft.models.nft.NftResultModel
-import com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer.TransferFeeFragment.Companion.TRANSFER_FEE_FRAGMENT_NFT_MODEL_KEY
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer.TransferFeeFragment.Companion.TRANSFER_FEE_FRAGMENT_NFT_RESULT_MODEL_KEY
+import com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer.TransferFeeFragment.Companion.TRANSFER_FEE_FRAGMENT_NFT_TOKEN_ADDRESS_KEY
 import com.arabnetwork.nft.util.ShareUtil
 import com.arabnetwork.nft.util.fragments.BaseDialogFragment
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
 
@@ -34,6 +31,7 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
      * variables
      */
     private lateinit var mNftResultModel: NftResultModel
+    private var mCopyTokenAddressValue : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,6 +75,7 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
         mBinding?.nftDetailToolbar?.toolbarIvBack?.setOnClickListener(this)
         mBinding?.nftDetailBtnSend?.setOnClickListener(this)
         mBinding?.nftDetailIvNftShare?.setOnClickListener(this)
+        mBinding?.nftDetailTvCopy?.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -86,11 +85,19 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
             }
             R.id.nft_detail_btn_send -> {
                 findNavController().navigate(R.id.transferFeeFragment, Bundle().apply {
-                    putParcelable(TRANSFER_FEE_FRAGMENT_NFT_MODEL_KEY, mNftResultModel)
+                    putParcelable(TRANSFER_FEE_FRAGMENT_NFT_RESULT_MODEL_KEY, mNftResultModel)
+                    putString(TRANSFER_FEE_FRAGMENT_NFT_TOKEN_ADDRESS_KEY, mCopyTokenAddressValue)
                 })
             }
             R.id.nft_detail_iv_nft_share -> {
                 ShareUtil.shareTokenAddress(mNftResultModel.tokenAddress)
+            }
+            R.id.nft_detail_tv_copy -> {
+                mCopyTokenAddressValue =
+                    mBinding?.nftDetailTvTokenAddress?.text.toString().ifEmpty {
+                        null
+                    }
+                Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
             }
         }
     }

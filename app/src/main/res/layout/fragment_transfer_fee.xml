@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.arabnetwork.nft.util.NftUtil" />
 
         <variable
-            name="nftModel"
-            type="com.arabnetwork.nft.models.NftModel" />
+            name="nftResultModel"
+            type="com.arabnetwork.nft.models.nft.NftResultModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +37,7 @@
 
                 <ImageView
                     android:id="@+id/transfer_fee_iv_image"
-                    loadImageFromUrl="@{nftModel.nftImage}"
+                    loadImageFromJson="@{nftResultModel.metadata}"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:scaleType="fitXY"
@@ -61,6 +62,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/transfer_fee_frame">
 
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/transfer_fee_cns_address"
                 android:layout_width="0dp"
@@ -68,45 +70,64 @@
                 android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+                android:clickable="true"
+                android:focusable="true"
                 android:background="@drawable/drawable_search_view_bg"
                 android:layoutDirection="ltr"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/transfer_fee_tv_paste_txt"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
-                    android:fontFamily="@font/sans_bold"
-                    android:gravity="center"
-                    android:text="Paste"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/custom_search_view_edt_text_size_large"
-                    app:layout_constraintBottom_toBottomOf="@+id/transfer_fee_iv_paste_icon"
-                    app:layout_constraintEnd_toStartOf="@+id/transfer_fee_iv_paste_icon"
-                    app:layout_constraintTop_toTopOf="@+id/transfer_fee_iv_paste_icon" />
-
-                <ImageView
-                    android:id="@+id/transfer_fee_iv_paste_icon"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/drawable_address_paste_item_bg"
+                    android:id="@+id/transfer_fee_cns_paste"
                     android:clickable="true"
-                    android:cropToPadding="true"
-                    android:padding="4dp"
-                    android:scaleType="centerInside"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_focus" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/transfer_fee_tv_paste_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/sans_bold"
+                        android:gravity="center"
+                        android:text="Paste"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/custom_search_view_edt_text_size_large"
+                        app:layout_constraintBottom_toBottomOf="@+id/transfer_fee_iv_paste_icon"
+                        app:layout_constraintEnd_toStartOf="@+id/transfer_fee_iv_paste_icon"
+                        app:layout_constraintTop_toTopOf="@+id/transfer_fee_iv_paste_icon" />
+
+                    <ImageView
+                        android:id="@+id/transfer_fee_iv_paste_icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/drawable_address_paste_item_bg"
+                        android:clickable="true"
+                        android:cropToPadding="true"
+                        android:focusable="true"
+                        android:padding="4dp"
+                        android:scaleType="centerInside"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_focus" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/transfer_fee_edt_address_input"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:clickable="true"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/sans_regular"
                     android:hint="@string/address"
@@ -118,8 +139,8 @@
                     android:textColorHint="@color/search_view_edt_text_color"
                     android:textSize="@dimen/custom_search_view_edt_text_size_large"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:focusable="true"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -133,7 +154,7 @@
                 android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
                 android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
                 android:fontFamily="@font/sans_regular"
-                android:text="@string/lorem"
+                android:text="@{NftUtil.INSTANCE.nftDescription(nftResultModel.metadata)}"
                 android:maxLines="3"
                 android:textAlignment="viewStart"
                 android:textColor="@color/text_gray_color"

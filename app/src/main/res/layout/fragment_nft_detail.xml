@@ -93,7 +93,7 @@
             android:background="@drawable/drawable_bg_gray"
             android:clickable="true"
             android:padding="8dp"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="@+id/nft_detail_tv_nft_name"
             app:layout_constraintEnd_toStartOf="@+id/nft_detail_iv_nft_share"
             app:layout_constraintTop_toTopOf="@+id/nft_detail_tv_nft_name"
@@ -173,10 +173,24 @@
             android:maxLines="1"
             android:textAlignment="viewStart"
             android:textColor="@color/text_gray_color"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nft_detail_tv_copy"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="@dimen/custom_search_view_edt_text_size_medium"
             app:layout_constraintTop_toBottomOf="@+id/nft_detail_tv_address_txt" />
+
+        <TextView
+            android:id="@+id/nft_detail_tv_copy"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/nft_detail_tv_token_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/custom_search_view_edt_padding_end"
+            android:textAlignment="center"
+            android:fontFamily="@font/sans_bold"
+            android:textSize="@dimen/custom_search_view_edt_text_size_medium"
+            android:textColor="@color/network_name_text_color"
+            android:text="Copy"
+            app:layout_constraintBottom_toBottomOf="@+id/nft_detail_tv_token_address"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/nft_detail_tv_description_txt"
