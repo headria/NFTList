@@ -8,16 +8,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.arabnetwork.nft.data.repository.NftRepository
-import com.arabnetwork.nft.models.nft.NftResponseModel
+import com.arabnetwork.nft.models.nft.NftResultModel
+import com.arabnetwork.nft.util.NftUtil
 import com.arabnetwork.nft.util.constants.ApiConstants.Companion.NFT_LIST_IS_EMPTY
 import com.arabnetwork.nft.util.constants.ApiConstants.Companion.NFT_LIST_IS_NOT_EMPTY
+import com.arabnetwork.nft.util.constants.ApiConstants.Companion.NFT_TRADE_IS_NOT_AVAILABLE
 import com.arabnetwork.nft.util.network.ApiResponse
+import com.arabnetwork.nft.util.network.GenericResponseModel
 import com.arabnetwork.nft.util.network.NetworkUtil.flowResponse
 import com.hadilq.liveevent.LiveEvent
 import com.hadilq.liveevent.LiveEventConfig
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -42,9 +47,12 @@ class NftViewModel @Inject constructor(
     private val _textViewMsg: MutableLiveData<String> = MutableLiveData()
     val textViewMsg: LiveData<String> get() = _textViewMsg
 
-    private val _nftRes: LiveEvent<NftResponseModel> =
+    private val _nftTradePriceFromWei: MutableLiveData<String> = MutableLiveData()
+    val nftTradePriceFromWei: LiveData<String> get() = _nftTradePriceFromWei
+
+    private val _nftRes: LiveEvent<GenericResponseModel<NftResultModel>> =
         LiveEvent(config = LiveEventConfig.PreferFirstObserver)
-    val nftRes: LiveData<NftResponseModel> get() = _nftRes
+    val nftRes: LiveData<GenericResponseModel<NftResultModel>> get() = _nftRes
 
     private fun showToastErrorMsg(errorMsg: String) {
         Toast.makeText(getApplication(), errorMsg, Toast.LENGTH_SHORT).show()
@@ -70,19 +78,23 @@ class NftViewModel @Inject constructor(
         getNftListSafeCall()
     }
 
+    fun getNftTrade(tokenAddress: String) {
+        getNftTradeSafeCall(tokenAddress = tokenAddress)
+    }
+
     private fun getNftListSafeCall() {
         viewModelScope.launch {
             flowResponse { nftRepository.getNftList() }.collect {
                 when (it) {
                     is ApiResponse.Loading -> {
+                        Log.d(TAG, "getNftListSafeCall: loading")
                         setProgressBarVisibility(true)
                         setNftRecViewVisibility(false)
-                        Log.d(TAG, "getNftListSafeCall: loading")
                     }
                     is ApiResponse.Success -> {
+                        Log.d(TAG, "getNftListSafeCall success: ${it.data.results}")
                         setProgressBarVisibility(false)
-                        Log.d(TAG, "getNftListSafeCall success: ${it.data.nftResultModelList}")
-                        if (!it.data.nftResultModelList.isNullOrEmpty()) {
+                        if (!it.data.results.isNullOrEmpty()) {
                             setNftRecViewVisibility(true)
                             setNftListEmptiness(false)
                             setTextViewMessage(NFT_LIST_IS_NOT_EMPTY)
@@ -95,6 +107,7 @@ class NftViewModel @Inject constructor(
                         }
                     }
                     is ApiResponse.Failure -> {
+                        Log.d(TAG, "getNftListSafeCall: failure")
                         setProgressBarVisibility(false)
                         setNftRecViewVisibility(false)
                         showToastErrorMsg(it.error)
@@ -109,5 +122,50 @@ class NftViewModel @Inject constructor(
         }
     }
 
+    private fun getNftTradeSafeCall(tokenAddress: String) {
+        viewModelScope.launch {
+            flowResponse {
+                nftRepository.getNftTrade(tokenAddress = tokenAddress)
+            }.collect {
+                when (it) {
+                    is ApiResponse.Loading -> {
+                        Log.d(TAG, "getNftTradeSafeCall: loading")
+                        setProgressBarVisibility(true)
+                    }
+                    is ApiResponse.Success -> {
+                        Log.d(TAG, "getNftTradeSafeCall: success ${it.data.results}")
+                        setProgressBarVisibility(false)
+                        if (!it.data.results.isNullOrEmpty()) {
+                            it.data.results[0].price?.let {
+                                withContext(Dispatchers.IO) {
+                                    _nftTradePriceFromWei.postValue(
+                                        NftUtil.convertNftTradePriceFromWei(
+                                            bigDecimalNum = it
+                                        )
+                                    )
+                                }
+                            }
+
+                        } else {
+                            showToastErrorMsg(errorMsg = NFT_TRADE_IS_NOT_AVAILABLE)
+                        }
+
+                    }
+                    is ApiResponse.Failure -> {
+                        Log.d(TAG, "getNftTradeSafeCall: failure")
+                        setProgressBarVisibility(false)
+                        showToastErrorMsg(it.error)
+
+                    }
+                    is ApiResponse.Complete -> {
+                        Log.d(TAG, "getNftTradeSafeCall: complete")
+                        setProgressBarVisibility(false)
+                    }
+
+
+                }
+            }
+        }
+    }
 
 }

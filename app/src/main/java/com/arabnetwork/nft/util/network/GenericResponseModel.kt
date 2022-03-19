@@ -1,12 +1,8 @@
-package com.arabnetwork.nft.models.nft
+package com.arabnetwork.nft.util.network
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
-data class NftResponseModel(
-
+data class GenericResponseModel<T>(
     @SerializedName("total")
     var total: Int? = 0,
     @SerializedName("page")
@@ -17,7 +13,8 @@ data class NftResponseModel(
     var cursor: String? = "",
     @SerializedName("status")
     var status: String? = "",
-    @SerializedName("result")
-    var nftResultModelList: ArrayList<NftResultModel>
 
-) : Parcelable
+    @SerializedName("result")
+    var results: ArrayList<T>
+
+)

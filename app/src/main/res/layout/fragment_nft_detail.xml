@@ -5,9 +5,13 @@
 
     <data>
         <import type="com.arabnetwork.nft.util.NftUtil"/>
+        <import type="android.view.View" />
         <variable
             name="nftResultModel"
             type="com.arabnetwork.nft.models.nft.NftResultModel" />
+        <variable
+            name="nftViewModel"
+            type="com.arabnetwork.nft.viewModels.NftViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -105,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/custom_search_view_edt_padding_start"
             android:fontFamily="@font/sans_bold"
-            tools:text="0.0025"
+            tools:text="@{nftViewModel.nftTradePriceFromWei}"
             android:textColor="@color/network_name_text_color"
             android:textSize="@dimen/custom_search_view_edt_text_size_large"
             app:layout_constraintBottom_toBottomOf="@+id/nft_detail_btn_send"
@@ -226,6 +230,31 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="@dimen/custom_search_view_edt_padding_bottom"
             />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1"
+            android:background="@android:color/transparent"
+            android:visibility="@{nftViewModel.isProgressEnable ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:theme="@style/progressStyle"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

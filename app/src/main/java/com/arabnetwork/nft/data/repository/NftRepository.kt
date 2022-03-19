@@ -11,4 +11,12 @@ class NftRepository @Inject constructor(
     suspend fun getNftList() = safeApiCall {
         nftService.getNftListApi(chain = "eth", format = "decimal")
     }
+
+    suspend fun getNftTrade(tokenAddress : String) = safeApiCall {
+        nftService.getNftTradeApi(
+            tokenAddress = tokenAddress,
+            chain = "eth",
+            marketplace = "opensea"
+        )
+    }
 }
