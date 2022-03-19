@@ -9,11 +9,15 @@ import com.arabnetwork.nft.R
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
+import org.web3j.utils.Convert
+import java.math.BigDecimal
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 
 object NftUtil {
+
+    private const val TAG = "NftUtil"
 
     private fun fromJson(jsonObject: String): JsonObject? {
         val gson = Gson()
@@ -55,4 +59,7 @@ object NftUtil {
         )
     }
 
+    fun convertNftTradePriceFromWei(bigDecimalNum: String): String {
+        return Convert.fromWei(BigDecimal(bigDecimalNum), Convert.Unit.ETHER).toString()
+    }
 }

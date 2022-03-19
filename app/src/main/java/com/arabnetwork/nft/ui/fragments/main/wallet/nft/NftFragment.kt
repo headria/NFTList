@@ -31,6 +31,12 @@ class NftFragment : Fragment(), View.OnClickListener {
     private val mBinding get() = _binding
 
     /**
+     * viewModel
+     */
+    private val mNftViewModel: NftViewModel by viewModels()
+
+
+    /**
      * adapter
      */
     private lateinit var mNftListRecAdapter: NftListRecAdapter
@@ -40,10 +46,6 @@ class NftFragment : Fragment(), View.OnClickListener {
      */
     private lateinit var mNetworkModel: NetworkModel
 
-    /**
-     * viewModel
-     */
-    private val mNftViewModel: NftViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -127,7 +129,7 @@ class NftFragment : Fragment(), View.OnClickListener {
 
     private fun observeNftList() {
         mNftViewModel.nftRes.observe(viewLifecycleOwner) {
-            mNftListRecAdapter.setList(it.nftResultModelList)
+            mNftListRecAdapter.setList(it.results)
         }
     }
 }

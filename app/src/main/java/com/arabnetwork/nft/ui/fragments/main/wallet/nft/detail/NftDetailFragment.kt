@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.arabnetwork.nft.R
 import com.arabnetwork.nft.databinding.FragmentNftDetailBinding
@@ -14,7 +15,10 @@ import com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer.TransferFeeFrag
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.transfer.TransferFeeFragment.Companion.TRANSFER_FEE_FRAGMENT_NFT_TOKEN_ADDRESS_KEY
 import com.arabnetwork.nft.util.ShareUtil
 import com.arabnetwork.nft.util.fragments.BaseDialogFragment
+import com.arabnetwork.nft.viewModels.NftViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
 
     companion object {
@@ -28,15 +32,23 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
     private val mBinding get() = _binding
 
     /**
+     * viewModel
+     */
+    private val mNftViewModel: NftViewModel by viewModels()
+
+    /**
      * variables
      */
     private lateinit var mNftResultModel: NftResultModel
-    private var mCopyTokenAddressValue : String? = null
+    private var mCopyTokenAddressValue: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            requireArguments().getParcelable<NftResultModel>(NFT_DETAIL_FRAGMENT_NFT_RESULT_MODEL_KEY)
+            requireArguments().getParcelable<NftResultModel>(
+                NFT_DETAIL_FRAGMENT_NFT_RESULT_MODEL_KEY
+            )
                 ?.let {
                     mNftResultModel = it
                 }
@@ -56,6 +68,7 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
         ).apply {
             this.lifecycleOwner = this@NftDetailFragment
             this.nftResultModel = mNftResultModel
+            this.nftViewModel = mNftViewModel
             ShareUtil.fragment = this@NftDetailFragment
         }
 
@@ -69,6 +82,8 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
 
     private fun build() {
         setOnClickListener()
+
+        requestGetNftTrade()
     }
 
     private fun setOnClickListener() {
@@ -102,4 +117,13 @@ class NftDetailFragment : BaseDialogFragment(), View.OnClickListener {
         }
     }
 
+
+    private fun requestGetNftTrade() {
+        mNftResultModel.tokenAddress?.let {
+            if (it.isNotEmpty()) {
+                mNftViewModel.getNftTrade(tokenAddress = it)
+            }
+        }
+
+    }
 }
