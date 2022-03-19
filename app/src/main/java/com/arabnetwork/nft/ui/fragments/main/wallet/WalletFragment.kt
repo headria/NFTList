@@ -67,8 +67,7 @@ class WalletFragment : Fragment() {
         initWalletNetworkListRecAdapter()
         setupWalletNetworkListRecView()
         makeSearchTextWatcher()
-        setDebounceOnSearch()
-        requestLocalSearchOnNetworkList(StringUtil.debouncedString)
+        requestLocalSearchOnNetworkList()
     }
 
     private fun initWalletNetworkListRecAdapter() {
@@ -95,12 +94,10 @@ class WalletFragment : Fragment() {
         mBinding?.toolbarWallet?.searchInputEdt?.addTextChangedListener(StringUtil.createTextWatcher())
     }
 
-    @SuppressLint("CheckResult")
-    private fun setDebounceOnSearch() {
-        StringUtil.createDebounce()
-    }
+    private fun requestLocalSearchOnNetworkList() {
+        StringUtil.getDebouncedString.observe(viewLifecycleOwner) {
+            mWalletNetworkListRecAdapter.searchOnNetworkList(searchChar = it)
 
-    private fun requestLocalSearchOnNetworkList(searchChar: String) {
-        mWalletNetworkListRecAdapter.searchOnNetworkList(searchChar = searchChar)
+        }
     }
 }
