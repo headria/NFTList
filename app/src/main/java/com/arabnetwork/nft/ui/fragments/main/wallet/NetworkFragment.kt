@@ -1,6 +1,5 @@
 package com.arabnetwork.nft.ui.fragments.main.wallet
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,18 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arabnetwork.nft.R
-import com.arabnetwork.nft.databinding.FragmentWalletBinding
+import com.arabnetwork.nft.databinding.FragmentNetworkBinding
 import com.arabnetwork.nft.ui.fragments.main.wallet.adapter.WalletNetworkListRecAdapter
 import com.arabnetwork.nft.ui.fragments.main.wallet.nft.NftFragment.Companion.NFT_FRAGMENT_BUNDLE_COIN_SYMBOL_KEY
 import com.arabnetwork.nft.util.StringUtil
 import com.arabnetwork.nft.util.constants.StaticListConstants.Companion.WALLET_NETWORK_LIST
 
-class WalletFragment : Fragment() {
+class NetworkFragment : Fragment() {
 
     /**
      * binding
      */
-    private var _binding: FragmentWalletBinding? = null
+    private var _binding: FragmentNetworkBinding? = null
     private val mBinding get() = _binding
 
     /**
@@ -39,14 +38,14 @@ class WalletFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = DataBindingUtil.inflate<FragmentWalletBinding?>(
+        _binding = DataBindingUtil.inflate<FragmentNetworkBinding?>(
             inflater,
-            R.layout.fragment_wallet,
+            R.layout.fragment_network,
             container,
             false
         ).apply {
             this.lifecycleOwner = viewLifecycleOwner
-            StringUtil.currentFragment = this@WalletFragment
+            StringUtil.currentFragment = this@NetworkFragment
         }
 
         return _binding?.root

@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'kotlin-parcelize'
-    id 'kotlin-android'
     id 'dagger.hilt.android.plugin'
 }
 
@@ -91,7 +91,6 @@ dependencies {
 
     // web3
     implementation 'org.web3j:core:4.8.7-android'
-
 
     // test
     testImplementation 'junit:junit:4.13.2'

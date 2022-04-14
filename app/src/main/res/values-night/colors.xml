@@ -12,7 +12,7 @@
     <color name="bottom_nav_view_bg_color">#142252</color>
     <color name="bottom_nav_view_icon_color">@color/white</color>
     <color name="app_bg_color">#121224</color>
-    <color name="text_gray_color">@color/white</color>
+    <color name="text_gray_color">#5a6485</color>
     <color name="search_view_bg_color">#142251</color>
     <color name="search_view_edt_text_color">#5a6485</color>
     <color name="bg_gray_color">#424250</color>

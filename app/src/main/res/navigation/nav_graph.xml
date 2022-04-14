@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/walletFragment"
-        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.WalletFragment"
+        android:name="com.arabnetwork.nft.ui.fragments.main.wallet.NetworkFragment"
         android:label="fragment_wallet"
-        tools:layout="@layout/fragment_wallet" />
+        tools:layout="@layout/fragment_network" />
     <fragment
         android:id="@+id/dappsFragment"
         android:name="com.arabnetwork.nft.ui.fragments.DappsFragment"
